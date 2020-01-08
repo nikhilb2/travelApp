@@ -1,11 +1,13 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import MuiLink from '@material-ui/core/Link';
-import ProTip from '../src/ProTip';
-import Link from '../src/Link';
+//import Container from '@material-ui/core/Container';
+//import Typography from '@material-ui/core/Typography';
+//import Box from '@material-ui/core/Box';
+//import MuiLink from '@material-ui/core/Link';
+//import ProTip from '../src/ProTip';
+//import Link from '../src/Link';
+import HomePage from '../src/pageContainers/homePage';
 
+/*
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -18,7 +20,8 @@ function Copyright() {
     </Typography>
   );
 }
-
+*/
+/*
 export default function Index() {
   return (
     <Container maxWidth="sm">
@@ -35,3 +38,14 @@ export default function Index() {
     </Container>
   );
 }
+*/
+
+const Index = () => {
+  return(
+    <div>
+      <HomePage />
+    </div>
+  )
+}
+
+export default Index
