@@ -1,7 +1,7 @@
 import React from 'react'
 import NavBar from '../components/navigation/navBar'
 import MiniNav from '../components/navigation/miniNavBar'
-import Search from '../components/common/searchBox'
+import Banner from '../components/common/banner'
 
 
 const HomePage = () => {
@@ -10,7 +10,7 @@ const HomePage = () => {
     <div>
       <NavBar />
       <MiniNav />
-      <Search />
+      <Banner />
     </div>
   )
 }
