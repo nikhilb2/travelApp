@@ -19,6 +19,9 @@ const styles = {
   },
   title: {
     flexGrow: 1,
+  },
+  logo: {
+    maxWidth: theme.spacing(10)
   }
 }
 
@@ -26,8 +29,11 @@ const NavBar = (props: any) => {
   const { classes } = props
   return(
     <div className={classes.root}>
-      <AppBar position="static" color={'inherit'}>
+      <AppBar position="static" color={'inherit'} elevation={0}>
         <Toolbar>
+        <Button color="primary">
+          <img className={classes.logo} src="static/bmc.png" alt="bmc" />
+        </Button>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
