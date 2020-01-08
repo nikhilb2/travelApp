@@ -1,6 +1,7 @@
 import React from 'react'
 import NavBar from '../components/navigation/navBar'
 import MiniNav from '../components/navigation/miniNavBar'
+import Search from '../components/common/searchBox'
 
 
 const HomePage = () => {
@@ -9,6 +10,7 @@ const HomePage = () => {
     <div>
       <NavBar />
       <MiniNav />
+      <Search />
     </div>
   )
 }
