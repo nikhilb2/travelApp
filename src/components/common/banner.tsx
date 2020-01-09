@@ -39,21 +39,25 @@ export default withStyles({
   },
 
   bottomDescriptionContainer: {
-    backgroundColor: 'rgba(0,0,0, 0.5)',
-    width: '100%',
-    height: '150px'
+    backgroundColor: 'rgba(0,0,0, 0.8)',
+    width: '100%'
   },
   searchBoxHolder: {
     height: '200px',
-    width: '100%',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginRight: 'auto',
+    marginLeft: 'auto'
+
   },
   descriptionText: {
     padding: '.5rem',
     marginRight: '2rem',
     marginLeft: '2rem',
-    color: 'white'
+    color: 'white',
+    textAlign: 'center',
+    marginTop: 'auto',
+    marginBottom: 'auto'
   }
 })(Banner)

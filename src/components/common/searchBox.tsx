@@ -35,7 +35,7 @@ export default withStyles({
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
-  //  backgroundColor: "gray",
+    backgroundColor: 'rgba(0,0,0, 0.7)',
     borderRadius: 40
   },
   margin: {
