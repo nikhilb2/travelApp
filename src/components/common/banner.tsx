@@ -12,12 +12,12 @@ const Banner = (props: any) => {
           <SearchBox />
         </div>
         <div>
-      <div className={classes.bottomDescriptionContainer}>
-        <Typography className={classes.descriptionText}>
-          Hey wanderer, planning to visit India? Well you are at the right place as we customize tours to India and international trips. Not that we are boasting, but all our itineraries are tailor-made so you have a lot to experiment. Choose from our handpicked tour packages or let our 100+ experts plan dreamlike Indian holidays for you. If you are traveling to India for the first time, take a look at our meticulously crafted 'India for First Timers' tour packages.
-        </Typography>
-      </div>
-      </div>
+          <div className={classes.bottomDescriptionContainer}>
+            <Typography className={classes.descriptionText}>
+              Hey wanderer, planning to visit India? Well you are at the right place as we customize tours to India and international trips. Not that we are boasting, but all our itineraries are tailor-made so you have a lot to experiment. Choose from our handpicked tour packages or let our 100+ experts plan dreamlike Indian holidays for you. If you are traveling to India for the first time, take a look at our meticulously crafted 'India for First Timers' tour packages.
+            </Typography>
+          </div>
+        </div>
       </div>
     </div>
   )
