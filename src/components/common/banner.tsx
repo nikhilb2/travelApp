@@ -40,7 +40,8 @@ export default withStyles({
 
   bottomDescriptionContainer: {
     backgroundColor: 'rgba(0,0,0, 0.8)',
-    width: '100%'
+    width: '100%',
+    height: '200px'
   },
   searchBoxHolder: {
     height: '200px',
