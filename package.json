@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@types/next": "latest",
+    "@types/node": "^13.1.5",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "typescript": "latest"
