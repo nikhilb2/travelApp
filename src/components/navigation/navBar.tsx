@@ -29,10 +29,10 @@ const NavBar = (props: any) => {
       <AppBar position="static" color={'inherit'} elevation={0}>
         <Toolbar>
         <Button color="primary">
-          <img className={classes.logo} src="static/bmc.png" alt="bmc" />
+          <img className={classes.logo} src="static/sbmc.png" alt="bmc" />
         </Button>
           <Typography variant="h6" className={classes.title}>
-            
+
           </Typography>
           <Button color="inherit">Enquire Now</Button>
         </Toolbar>
