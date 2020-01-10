@@ -14,11 +14,6 @@ const useStyles = makeStyles({
   },
   media: {
     height: 140,
-  },
-  caption: {
-    position: 'relative',
-    marginTop: -50,
-    marginLeft: theme.spacing(1),
   }
 });
 
@@ -32,7 +27,7 @@ export default function MediaCard() {
           className={classes.media}
           image="static/goa.jpg"
           title="Contemplative Reptile"
-          children={      <Button>
+          children={<Button>
                   Goa
                 </Button>}
         />
