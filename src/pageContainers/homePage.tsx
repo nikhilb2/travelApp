@@ -4,6 +4,7 @@ import MiniNav from '../components/navigation/miniNavBar'
 import Banner from '../components/common/banner'
 import TravelCards from '../components/travelCard/travelCardsContainer'
 import HolidayCards from '../components/travelCard/holidayCardsContainer'
+import Footer from '../components/common/footer'
 import { withStyles } from '@material-ui/styles'
 
 const HomePage = (props: any) => {
@@ -17,6 +18,7 @@ const HomePage = (props: any) => {
         <TravelCards data={[1,2,3,5,6,7]} />
       </div>
       <HolidayCards data={[1,2,3,4,5,6]} />
+      <Footer />
     </div>
   )
 }
