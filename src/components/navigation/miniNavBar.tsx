@@ -50,5 +50,8 @@ export default withStyles({
     justifyContent: 'space-around',
     backgroundColor: 'black',
     color: theme.palette.primary.light,
+    [theme.breakpoints.down('sm')]: {
+      display: 'none'
+    }
   }
 })(MiniNav)

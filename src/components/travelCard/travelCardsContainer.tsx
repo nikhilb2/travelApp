@@ -16,6 +16,7 @@ export default withStyles({
   root: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
+    flexWrap: 'wrap',
   }
 })(TravelCardsConatainer)

@@ -6,7 +6,7 @@ import TravelCards from '../components/travelCard/travelCardsContainer'
 import HolidayCards from '../components/travelCard/holidayCardsContainer'
 import Footer from '../components/common/footer'
 import { withStyles } from '@material-ui/styles'
-
+import theme from '../theme'
 const HomePage = (props: any) => {
   const { classes } = props
   return(
@@ -26,6 +26,9 @@ const HomePage = (props: any) => {
 export default withStyles({
   travelCard: {
     marginTop: -100,
-    padding: '1rem'
+    padding: '1rem',
+    [theme.breakpoints.down('sm')]: {
+      marginTop: 0
+    }
   }
 })(HomePage)
