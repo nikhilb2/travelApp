@@ -44,7 +44,7 @@ export default withStyles({
     },
     [`& input`]: {
       padding: ".5rem",
-      color: "white"
+      color: theme.palette.primary.light,
     }
   }
 })(SearchBox)

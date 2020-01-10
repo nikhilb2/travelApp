@@ -2,6 +2,7 @@ import React from 'react'
 import { withStyles } from "@material-ui/core/styles"
 import SearchBox from './searchBox'
 import Typography from '@material-ui/core/Typography';
+import theme from '../../theme'
 
 const Banner = (props: any) => {
   const { classes } = props
@@ -56,7 +57,7 @@ export default withStyles({
     padding: '.5rem',
     marginRight: '2rem',
     marginLeft: '2rem',
-    color: 'white',
+    color: theme.palette.primary.light,
     textAlign: 'center',
     marginTop: 'auto',
     marginBottom: 'auto'

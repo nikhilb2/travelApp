@@ -7,7 +7,7 @@ const HolidayCardsHolder = (props: any) => {
   const { classes, data } = props
   return(
     <div className={classes.root}>
-      {data && data.map((card: number,i: number) => <div key={card+"h"+i}><HolidayCard /></div>)}
+      {data && data.map((card: number) => <div key={card}><HolidayCard /></div>)}
     </div>
   )
 }

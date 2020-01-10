@@ -16,7 +16,7 @@ const HomePage = (props: any) => {
       <div className={classes.travelCard}>
         <TravelCards data={[1,2,3,5,6,7]} />
       </div>
-      <HolidayCards data={[1,2,3,5,3,3]} />
+      <HolidayCards data={[1,2,3,4,5,6]} />
     </div>
   )
 }
