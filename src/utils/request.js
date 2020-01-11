@@ -1,6 +1,6 @@
 import { getAccessToken } from './auth'
-const url = 'https://backendapi.turing.com/'
-const imageUrl = 'https://backendapi.turing.com/images/products/'
+const url = 'http://bookmychhutti.com/api/'
+const imageUrl = 'http://bookmychhutti.com/api/uploads/'
 export let parseJSONResponse = null
 
 // concat url with param
