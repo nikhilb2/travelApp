@@ -1,6 +1,6 @@
 import { getAccessToken } from './auth'
-const url = 'https://bookmychhutti.com/api/'
-const imageUrl = 'https://bookmychhutti.com/api/uploads/'
+const url = 'https://zefiri.com/travel-api/'
+const imageUrl = 'https://zefiri.com/travel-api/uploads/'
 export let parseJSONResponse = null
 
 // concat url with param
