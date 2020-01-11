@@ -9,10 +9,11 @@ import Footer from '../components/common/footer'
 import { withStyles } from '@material-ui/styles'
 import theme from '../theme'
 const HomePage = (props: any) => {
-  const { classes } = props
+  const { classes, user } = props
+  console.log(props)
   return(
     <div>
-      <NavLogin user={null}/>
+      <NavLogin user={user}/>
       <NavBar />
       <MiniNav />
       <Banner />

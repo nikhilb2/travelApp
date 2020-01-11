@@ -6,6 +6,7 @@ import React from 'react';
 //import ProTip from '../src/ProTip';
 //import Link from '../src/Link';
 import HomePage from '../src/pageContainers/homePage';
+import { userDetails } from '../hocs/auth-hoc'
 
 /*
 function Copyright() {
@@ -40,12 +41,17 @@ export default function Index() {
 }
 */
 
-const Index = () => {
+const Index = (props: any) => {
   return(
     <div>
-      <HomePage />
+      <HomePage {...props}/>
     </div>
   )
 }
 
-export default Index
+Index.getInitialProps = async () => {
+  return {test: 'test'}
+}
+
+
+export default userDetails(Index)
