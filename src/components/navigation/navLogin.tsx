@@ -63,8 +63,7 @@ class NavBarMen extends Component<Props, State> {
     if (!result.error) {
       this.setState({ newUser: result.message, checkOutWithoutUser: false })
       //save to cookies
-    //  saveAuth(result.jwt)
-    //  saveUserDetails(result.data)
+      this.signInUser(data)
     } else {
       this.setState({ error: result.error })
     }
