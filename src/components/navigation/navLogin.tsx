@@ -104,7 +104,7 @@ class NavBarMen extends Component<Props, State> {
         <AppBar
           position="static"
           style={{
-            backgroundColor: bgcolor ? bgcolor : theme.palette.primary.main,
+            backgroundColor: bgcolor ? bgcolor : theme.palette.secondary.main,
             color: color ? color : 'black',
             height: '50px'
           }}

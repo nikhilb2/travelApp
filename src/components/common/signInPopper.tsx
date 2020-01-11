@@ -35,7 +35,7 @@ const SignInPop = (props: any) => {
     <div>
       <Button
         style={{
-          color: theme.palette.secondary.main,
+          color: theme.palette.primary.dark,
           textTransform: 'none',
           padding: 1,
           margin: 0
