@@ -187,7 +187,10 @@ export default withStyles({
   },
   title: {
     flexGrow: 1,
-    textAlign: 'center'
+    textAlign: 'center',
+    [theme.breakpoints.down('sm')]: {
+      display: 'none'
+    }
   },
   navRightButtons: {
     display: 'flex',
