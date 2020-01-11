@@ -37,7 +37,8 @@ export const getServerUser = user => {
   console.log('user server');
   console.log(user);
   return {
-    user: user && user.user ? user.user : null
+    user: user && user.user ? user.user : null,
+    accessToken: user ? user.accessToken : null
   }
 }
 
