@@ -1,4 +1,5 @@
 import React from 'react'
+import NavLogin from '../components/navigation/navLogin'
 import NavBar from '../components/navigation/navBar'
 import MiniNav from '../components/navigation/miniNavBar'
 import Banner from '../components/common/banner'
@@ -11,6 +12,7 @@ const HomePage = (props: any) => {
   const { classes } = props
   return(
     <div>
+      <NavLogin user={null}/>
       <NavBar />
       <MiniNav />
       <Banner />
