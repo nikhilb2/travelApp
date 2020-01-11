@@ -61,12 +61,12 @@ class NavBarMen extends Component<Props, State> {
     })
     console.log(result)
     if (!result.error) {
-      this.setState({ newUser: result.data, checkOutWithoutUser: false })
+      this.setState({ newUser: result.message, checkOutWithoutUser: false })
       //save to cookies
-      saveAuth(result.jwt)
-      saveUserDetails(result.data)
+    //  saveAuth(result.jwt)
+    //  saveUserDetails(result.data)
     } else {
-      this.setState({ error: result })
+      this.setState({ error: result.error })
     }
   }
 
@@ -77,12 +77,12 @@ class NavBarMen extends Component<Props, State> {
     })
     console.log(result)
     if (!result.error) {
-      this.setState({ newUser: result.customer, checkOutWithoutUser: false })
+      this.setState({ newUser: result.data.data, checkOutWithoutUser: false })
       //save to cookies
-      saveAuth(result.accessToken)
-      saveUserDetails(result.customer)
+      saveAuth(result.jwt)
+      saveUserDetails(result.data.data)
     } else {
-      this.setState({ error: result })
+      this.setState({ error: result.error })
     }
   }
 

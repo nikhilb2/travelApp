@@ -15,7 +15,7 @@ type Props = {
   style?: any
   bgcolor?: any
   register?: any
-  error?: any
+  error: string | null
 }
 type State = {
   email?: any
@@ -90,7 +90,7 @@ class Register extends Component<Props, State> {
             Register
           </Button>
         </div>
-        <div>{error ? error.error.message : null}</div>
+        <div>{error}</div>
       </Box>
     )
   }

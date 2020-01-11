@@ -18,9 +18,12 @@ export function decoratedOptions(params) {
   const newOptions = Object.assign(params, {
     headers: {
       'Content-Type': 'application/json',
-      'user-key': accessToken
+
     }
   })
+  if (accessToken) {
+    newOptions.headers.jwt = accessToken
+  }
 
   //console.log(accessToken)
   return newOptions
