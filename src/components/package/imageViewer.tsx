@@ -28,15 +28,15 @@ const ImageView = (props: any) => {
 
 export default withStyles({
   root: {
-    backgroundColor: theme.palette.primary.light
+    //backgroundColor: theme.palette.primary.light
   },
   img: {
-    width: 100,
+    height: 70,
     margin: theme.spacing(1),
   //  border: `1px solid ${theme.palette.primary.dark}`
   },
   selectedImg: {
-    width: 100,
+    height: 70,
     margin: theme.spacing(1),
     border: `2px solid ${theme.palette.primary.dark}`
   },
