@@ -5,6 +5,8 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import Link from 'next/link'
+
 import theme from '../../theme'
 
 const useStyles = makeStyles({
@@ -28,6 +30,10 @@ const useStyles = makeStyles({
   },
   cardContent: {
     height: 120
+  },
+  anchor: {
+    textDecoration: 'none',
+    color: 'inherit'
   }
 });
 
@@ -37,20 +43,24 @@ export default function MediaCard() {
   return (
     <Card className={classes.card}>
       <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="/static/phi.jpg"
-          title="Contemplative Reptile"
-          children={<Typography className={classes.price}>₹50000</Typography>}
-        />
-        <CardContent className={classes.cardContent}>
-          <Typography className={classes.heading} variant="subtitle1" >
-            Luxury Phuket Phi phi
-          </Typography>
-          <Typography className={classes.miniDescription} variant="caption" color="textSecondary" component="p">
-            Experience 5 nights 4 days in luxurios resort in a peacefull resort in the jungles of phiphi island
-          </Typography>
-        </CardContent>
+        <Link href="/package">
+          <a className={classes.anchor}>
+            <CardMedia
+              className={classes.media}
+              image="/static/phi.jpg"
+              title="Contemplative Reptile"
+              children={<Typography className={classes.price}>₹50000</Typography>}
+            />
+            <CardContent className={classes.cardContent}>
+              <Typography className={classes.heading} variant="subtitle1" >
+                Luxury Phuket Phi phi
+              </Typography>
+              <Typography className={classes.miniDescription} variant="caption" color="textSecondary" component="p">
+                Experience 5 nights 4 days in luxurios resort in a peacefull resort in the jungles of phiphi island
+              </Typography>
+            </CardContent>
+          </a>
+        </Link>
       </CardActionArea>
     </Card>
   );
