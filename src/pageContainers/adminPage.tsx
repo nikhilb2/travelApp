@@ -2,6 +2,7 @@ import React from 'react'
 import NavLogin from '../components/navigation/navLogin'
 import NavBar from '../components/navigation/navBar'
 import MiniNav from '../components/navigation/miniNavBar'
+import AdminMiniNav from '../components/navigation/adminMiniNav'
 import Footer from '../components/common/footer'
 import { withStyles } from '@material-ui/styles'
 import Typography from '@material-ui/core/Typography'
@@ -14,7 +15,10 @@ const PackagePage = (props: any) => {
     <div>
       <NavLogin user={user}/>
       <NavBar />
-      <MiniNav />
+      {user && user.user && user.user.id === '69'
+        ? <AdminMiniNav />
+        : <MiniNav />
+      }
       {user && user.user && user.user.id === '69'
         ? <Typography>
           Welcome
