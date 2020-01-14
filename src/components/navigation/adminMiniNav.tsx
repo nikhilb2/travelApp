@@ -6,11 +6,11 @@ import { withStyles } from '@material-ui/styles'
 import theme from '../../theme'
 
 const MiniNav = (props: any) => {
-  const { classes } = props
+  const { classes, selectMenu} = props
   return(
     <div className={classes.container}>
       <HomeIcon className={classes.home}/>
-      <Button color='inherit'>
+      <Button onClick={() => selectMenu('packages')} color='inherit'>
         Packages
       </Button>
       <Button color='inherit'>
