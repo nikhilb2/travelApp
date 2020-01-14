@@ -4,6 +4,7 @@ import NavBar from '../components/navigation/navBar'
 import MiniNav from '../components/navigation/miniNavBar'
 import Footer from '../components/common/footer'
 import { withStyles } from '@material-ui/styles'
+import Typography from '@material-ui/core/Typography'
 //import theme from '../theme'
 
 const PackagePage = (props: any) => {
@@ -14,6 +15,14 @@ const PackagePage = (props: any) => {
       <NavLogin user={user}/>
       <NavBar />
       <MiniNav />
+      {user && user.user && user.user.id === '69'
+        ? <Typography>
+          Welcome
+        </Typography>
+        : <Typography>
+          Error 404 Page not found
+        </Typography>
+      }
       <Footer />
     </div>
   )
