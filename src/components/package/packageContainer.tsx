@@ -9,8 +9,12 @@ const PackageContainer = (props: any) => {
   const { classes } = props
   return(
     <Box className={classes.root}>
-      <ImageViewer />
-      <PackageDescription />
+      <Box className={classes.leftSide}>
+        <ImageViewer />
+      </Box>
+      <Box className={classes.rightSide}>
+        <PackageDescription />
+      </Box>
     </Box>
   )
 }
@@ -20,7 +24,12 @@ export default withStyles({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    width: '80%',
     padding: theme.spacing(4)
+  },
+  leftSide: {
+    width: '40%'
+  },
+  rightSide: {
+    width: '60%'
   }
 })(PackageContainer)

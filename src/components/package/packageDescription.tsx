@@ -2,7 +2,7 @@ import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Box from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
-import Table from '../common/table'
+import Table from './table'
 
 const tableData = {
   inclusions: ['Flight Tickets', 'Transfers', 'Hotel', 'Sight Seeings', 'Breakfast'],
