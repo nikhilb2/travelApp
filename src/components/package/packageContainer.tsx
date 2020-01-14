@@ -10,7 +10,7 @@ const PackageContainer = (props: any) => {
   const { classes } = props
   return(
     <Box>
-      <Box className={classes.imageAndDescriptionContainer}>
+      <Box boxShadow={4} className={classes.imageAndDescriptionContainer}>
         <Box className={classes.leftSide}>
           <ImageViewer />
         </Box>
@@ -39,7 +39,11 @@ export default withStyles({
       flexDirection: 'column'
     },
     justifyContent: 'space-around',
-    padding: theme.spacing(4)
+    padding: theme.spacing(4),
+    width: '80%',
+    marginRight: 'auto',
+    marginLeft: 'auto',
+    marginTop: theme.spacing(2)
   },
   leftSide: {
     width: '40%',
