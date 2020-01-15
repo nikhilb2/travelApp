@@ -15,7 +15,9 @@ const CreatePackage = (props: any) => {
   }
   return(
     <React.Fragment>
-      {selectedImages.map((image: any, i: number) => <div key={i}><img className={classes.previewImg} src={URL.createObjectURL(image)} alt='image' /></div>)}
+      <div className={classes.imageContainer}>
+        {selectedImages.map((image: any, i: number) => <div key={i + "image"}><img className={classes.previewImg} src={URL.createObjectURL(image)} alt='image' /></div>)}
+      </div>
       <Box className={classes.fileSelectorHolder}>
         <Box boxShadow={4} className={classes.uploadButton}><Typography>Add Photos</Typography></Box>
         <input className={classes.fileSelector} onChange={(e: any) => selectImages(addToPhotos(e.target.files))} type='file' multiple />
@@ -47,6 +49,13 @@ export default withStyles({
     color: theme.palette.primary.dark,
   },
   previewImg: {
-    height: 100
+    height: 100,
+    marginRight: theme.spacing(1)
+  },
+  imageContainer: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap'
   }
 })(CreatePackage)
