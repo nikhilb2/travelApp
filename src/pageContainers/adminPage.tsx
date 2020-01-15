@@ -7,7 +7,8 @@ import CreatePackage from '../components/createPackage/createPackage'
 import Footer from '../components/common/footer'
 import { withStyles } from '@material-ui/styles'
 import Typography from '@material-ui/core/Typography'
-//import theme from '../theme'
+import Box from '@material-ui/core/Box'
+import theme from '../theme'
 
 const renderSelection = (menu: string) => {
   console.log(menu)
@@ -22,7 +23,7 @@ const renderSelection = (menu: string) => {
 }
 
 const PackagePage = (props: any) => {
-  const { user } = props
+  const { user, classes } = props
   console.log(props)
   const [selectedMenu, selectMenu] = useState('null')
   console.log(selectedMenu)
@@ -34,12 +35,14 @@ const PackagePage = (props: any) => {
         ? <AdminMiniNav selectMenu={selectMenu}/>
         : <MiniNav />
       }
-      {user && user.user && user.user.id === '69'
-        ? renderSelection(selectedMenu)
-        : <Typography>
-          Error 404 Page not found
-        </Typography>
-      }
+      <Box className={classes.content} boxShadow={4}>
+        {user && user.user && user.user.id === '69'
+          ? renderSelection(selectedMenu)
+          : <Typography>
+            Error 404 Page not found
+          </Typography>
+        }
+      </Box>
       <Footer />
     </React.Fragment>
   )
@@ -50,5 +53,13 @@ export default withStyles({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center'
+  },
+  content: {
+    width: '80%',
+    marginRight: 'auto',
+    marginLeft: 'auto',
+    marginTop: theme.spacing(3),
+    marginBottom: theme.spacing(3),
+    padding: theme.spacing(1),
   }
 })(PackagePage)

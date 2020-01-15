@@ -6,21 +6,28 @@ import Typography from '@material-ui/core/Typography'
 
 const CreatePackage = (props: any) => {
   const { classes } = props
-  const [selectedImages, selectImages] = useState(null)
+  const [selectedImages, selectImages] = useState(Array())
   console.log(selectedImages);
-
+  const addToPhotos = (image: any) => {
+    const newImages = [...selectedImages]
+    newImages.push(...image)
+    return newImages
+  }
   return(
     <React.Fragment>
-      {selectedImages  && <img className={classes.previewImg} src={URL.createObjectURL(selectedImages)} alt='image' />}
+      {selectedImages.map((image: any, i: number) => <div key={i}><img className={classes.previewImg} src={URL.createObjectURL(image)} alt='image' /></div>)}
       <Box className={classes.fileSelectorHolder}>
         <Box boxShadow={4} className={classes.uploadButton}><Typography>Add Photos</Typography></Box>
-        <input className={classes.fileSelector} onChange={(e: any) => selectImages(e.target.files[0])} type='file' />
+        <input className={classes.fileSelector} onChange={(e: any) => selectImages(addToPhotos(e.target.files))} type='file' multiple />
       </Box>
     </React.Fragment>
   )
 }
 
 export default withStyles({
+  root: {
+    width: '80%'
+  },
   fileSelectorHolder: {
     position: 'relative'
   },
