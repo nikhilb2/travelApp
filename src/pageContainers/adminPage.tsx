@@ -3,7 +3,7 @@ import NavLogin from '../components/navigation/navLogin'
 import NavBar from '../components/navigation/navBar'
 import MiniNav from '../components/navigation/miniNavBar'
 import AdminMiniNav from '../components/navigation/adminMiniNav'
-import CreatePackage from '../components/createPackage/createPackage'
+import ImageSelector from '../components/createPackage/imageSelector'
 import Footer from '../components/common/footer'
 import { withStyles } from '@material-ui/styles'
 import Typography from '@material-ui/core/Typography'
@@ -14,7 +14,7 @@ const renderSelection = (menu: string) => {
   console.log(menu)
   switch(menu) {
     case "packages":
-      return <CreatePackage />
+      return <ImageSelector />
     default:
       return (<Typography>
         Welcome

@@ -16,7 +16,10 @@ const CreatePackage = (props: any) => {
   return(
     <React.Fragment>
       <div className={classes.imageContainer}>
-        {selectedImages.map((image: any, i: number) => <div key={i + "image"}><img className={classes.previewImg} src={URL.createObjectURL(image)} alt='image' /></div>)}
+        {selectedImages.map((image: any, i: number) =>
+          <div key={i + "image"}>
+            <img className={classes.previewImg} src={URL.createObjectURL(image)} alt='image' />
+          </div>)}
       </div>
       <Box className={classes.fileSelectorHolder}>
         <Box boxShadow={4} className={classes.uploadButton}><Typography>Add Photos</Typography></Box>
