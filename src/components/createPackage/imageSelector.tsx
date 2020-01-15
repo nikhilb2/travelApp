@@ -1,13 +1,13 @@
-import React, { useState} from 'react'
+import React from 'react'
 import { withStyles } from '@material-ui/styles'
 import Box from '@material-ui/core/Box'
 import theme from '../../theme'
 import Typography from '@material-ui/core/Typography'
 
 const CreatePackage = (props: any) => {
-  const { classes } = props
-  const [selectedImages, selectImages] = useState(Array())
-  console.log(selectedImages);
+  const { classes, selectImages, selectedImages } = props
+  //const [selectedImages, selectImages] = useState(Array())
+  //console.log(selectedImages);
   const addToPhotos = (image: any) => {
     const newImages = [...selectedImages]
     newImages.push(...image)

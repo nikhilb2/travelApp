@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { withStyles } from '@material-ui/styles'
 import TextField from '@material-ui/core/TextField'
 import Box from '@material-ui/core/Box'
+import Button from '@material-ui/core/Button'
 
 const Form = (props: any) => {
-  const [ title, setTitle ] = useState(null)
-  console.log(title);
-  const { classes } = props
+  //const [ title, setTitle ] = useState(null)
+  const { classes, setDetails, insertPackage } = props
   return(
     <React.Fragment>
       <Box className={classes.root}>
@@ -18,7 +18,7 @@ const Form = (props: any) => {
           //autoComplete="email"
           margin="normal"
           variant="outlined"
-          onChange={(e: any) => setTitle(e.target.value)}
+          onChange={(e: any) => setDetails({name: e.target.value})}
         />
         <TextField
           id="outlined-email-input"
@@ -28,7 +28,7 @@ const Form = (props: any) => {
           //autoComplete="email"
           margin="normal"
           variant="outlined"
-        //  onChange={(e: any) => setTitle(e.target.value)}
+          onChange={(e: any) => setDetails({smallDescription: e.target.value})}
         />
         <TextField
           id="outlined-email-input"
@@ -38,7 +38,7 @@ const Form = (props: any) => {
           //autoComplete="email"
           margin="normal"
           variant="outlined"
-        //  onChange={(e: any) => setTitle(e.target.value)}
+          onChange={(e: any) => setDetails({description: e.target.value})}
         />
         <TextField
           id="outlined-email-input"
@@ -48,7 +48,7 @@ const Form = (props: any) => {
           //autoComplete="email"
           margin="normal"
           variant="outlined"
-        //  onChange={(e: any) => setTitle(e.target.value)}
+          onChange={(e: any) => setDetails({inclusions: e.target.value})}
         />
         <TextField
           id="outlined-email-input"
@@ -58,7 +58,7 @@ const Form = (props: any) => {
           //autoComplete="email"
           margin="normal"
           variant="outlined"
-        //  onChange={(e: any) => setTitle(e.target.value)}
+          onChange={(e: any) => setDetails({exclusions: e.target.value})}
         />
         <TextField
           id="outlined-email-input"
@@ -68,8 +68,9 @@ const Form = (props: any) => {
           //autoComplete="email"
           margin="normal"
           variant="outlined"
-        //  onChange={(e: any) => setTitle(e.target.value)}
+          onChange={(e: any) => setDetails({price: e.target.value})}
         />
+        <Button onClick={insertPackage}>Insert</Button>
       </Box>
     </React.Fragment>
   )

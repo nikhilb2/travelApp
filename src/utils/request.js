@@ -13,16 +13,15 @@ export function decoratedImageUrl(params) {
 }
 
 //concat fetch options with user-key and other headers
-export function decoratedOptions(params) {
-  const accessToken = getAccessToken()
+export function decoratedOptions(params, auth) {
   const newOptions = Object.assign(params, {
     headers: {
       'Content-Type': 'application/json',
-
     }
   })
-  if (accessToken) {
-    newOptions.headers.jwt = accessToken
+  if (auth) {
+    const accessToken = getAccessToken()
+    newOptions.headers.authorization = "Bearer " + accessToken
   }
 
   //console.log(accessToken)
@@ -50,9 +49,10 @@ function checkStatus(response) {
   throw error
 }
 
-export const fetchRequest = async (param, options) => {
+export const fetchRequest = async (param, options, auth) => {
   const urlTofetch = url + param
-  const newOptions = decoratedOptions(options)
+  const newOptions = decoratedOptions(options, auth)
+  console.log(newOptions);
   try {
     const response = checkStatus(await fetch(urlTofetch, newOptions))
     const result = await parseJSON(response)
