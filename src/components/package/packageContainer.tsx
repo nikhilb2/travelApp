@@ -10,23 +10,29 @@ const PackageContainer = (props: any) => {
   const { classes } = props
   return(
     <Box>
-      <Box boxShadow={4} className={classes.imageAndDescriptionContainer}>
-        <Box className={classes.leftSide}>
-          <ImageViewer />
-        </Box>
-        <Box className={classes.rightSide}>
-          <PackageDescription />
-        </Box>
-      </Box>
-      <Box boxShadow={4} className={classes.description}>
-        <Typography className={classes.detailsHeading} variant='h6'>
-          Details
-        </Typography>
-        <Typography className={classes.descriptionText}>
-          Phi phi island Phi phi islandPhi phi island  Phi phi islandPhiPhi phi islandPhi phi islandPhi phi island Phi phi island Phi phi islandPhi phi islandPhi phi island
-          Phi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi island
-        </Typography>
-      </Box>
+      <article>
+        <section>
+          <Box boxShadow={4} className={classes.imageAndDescriptionContainer}>
+            <Box className={classes.leftSide}>
+              <ImageViewer />
+            </Box>
+            <Box className={classes.rightSide}>
+              <PackageDescription />
+            </Box>
+          </Box>
+        </section>
+        <section>
+          <Box boxShadow={4} className={classes.description}>
+            <Typography className={classes.detailsHeading} variant='h6'>
+              Details
+            </Typography>
+            <Typography className={classes.descriptionText}>
+              Phi phi island Phi phi islandPhi phi island  Phi phi islandPhiPhi phi islandPhi phi islandPhi phi island Phi phi island Phi phi islandPhi phi islandPhi phi island
+              Phi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi island
+            </Typography>
+          </Box>
+        </section>
+      </article>
     </Box>
   )
 }

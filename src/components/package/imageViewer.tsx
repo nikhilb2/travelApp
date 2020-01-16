@@ -12,7 +12,9 @@ const ImageView = (props: any) => {
     <React.Fragment>
       <div className={classes.root}>
         <div className={classes.selectedImageHolder}>
-          <img src={selectedImage} alt ='selectedImage' className={classes.selectedImage}/>
+          <figure>
+            <img src={selectedImage} alt ='selectedImage' className={classes.selectedImage}/>
+          </figure>
         </div>
         <div className={classes.imageSelector}>
           {imageArray.map((image: string, i: number) => <div onClick={() => {
