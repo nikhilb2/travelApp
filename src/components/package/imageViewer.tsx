@@ -11,6 +11,7 @@ const ImageView = (props: any) => {
   return(
     <React.Fragment>
       <div className={classes.root}>
+      <meta property="og:image" content={selectedImage} />
         <div className={classes.selectedImageHolder}>
           <figure>
             <img src={selectedImage} alt ='selectedImage' className={classes.selectedImage}/>
