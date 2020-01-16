@@ -15,9 +15,9 @@ const PackageDescription = (props: any) => {
   const { classes } = props
   return(
     <Box>
-      <figcaption>
+      <title>
         <Typography variant='h4'>Luxury Phuket Phi Phi</Typography>
-      </figcaption>
+      </title>
         <Typography variant='caption'>Luxury Phuket Phi Phi Luxury Phuket Phi Phi Luxury Phuket Phi PhiLuxury Phuket Phi PhiLuxury Phuket Phi Phi</Typography>
       <Box className={classes.priceAndButtonContainer}>
         <Box className={classes.priceTag}><Typography className={classes.priceText}>₹50000.00</Typography></Box>

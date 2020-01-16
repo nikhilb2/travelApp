@@ -14,6 +14,9 @@ const ImageView = (props: any) => {
         <div className={classes.selectedImageHolder}>
           <figure>
             <img src={selectedImage} alt ='selectedImage' className={classes.selectedImage}/>
+          <figcaption>
+            Luxury phi pihi @Rs50000
+          </figcaption>
           </figure>
         </div>
         <div className={classes.imageSelector}>
