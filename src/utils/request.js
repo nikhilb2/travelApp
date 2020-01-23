@@ -14,6 +14,7 @@ export function decoratedImageUrl(params) {
 
 //concat fetch options with user-key and other headers
 export function decoratedOptions(params, auth) {
+  console.log(params);
   const newOptions = Object.assign(params, {
     headers: {
       'Content-Type': 'application/json',
@@ -59,6 +60,7 @@ export const fetchRequest = async (param, options, auth) => {
 
     return result
   } catch (error) {
+    console.log(error);
     const parseRes = await error.response.json()
     const parsedError = Object.assign(error, parseRes)
     return parsedError
@@ -74,4 +76,35 @@ export const fetchRequestWithoutResponse = async (param, options) => {
   } catch (error) {
     error
   }
+}
+
+
+export function requestUploadImage(photos) {
+  const formData = new FormData()
+  photos.forEach((uri, i) => {
+    const fileName = uri.name
+      formData.append(`fileToUpload[${i}]`, uri)
+  })
+   const options = {
+    method: 'POST',
+    body: formData,
+    header: {
+      //'Content-Type': 'application/json'
+      Accept: 'application/json',
+      'Content-Type': 'multipart/form-data'
+    }
+  }
+  return fetch('https://zefiri.com/travel-api/upload.php', options) // eslint-disable-line
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(data => ({ data }))
+    .catch(err => ({ err }))
+}
+
+export function returnFormData(photos) {
+  const formData = new FormData()
+  console.log(photos);
+
+    console.log(formData.values());
+  return formData
 }

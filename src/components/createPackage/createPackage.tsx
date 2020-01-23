@@ -2,25 +2,27 @@ import React, { useState } from 'react'
 import ImageSelector from './imageSelector'
 import CreatePackageForm from './createPackageForm'
 //import Box from '@material-ui/core/Box'
-import { fetchRequest } from '../../utils/request'
+import { requestUploadImage, fetchRequest } from '../../utils/request'
+import Modal from '@material-ui/core/Modal';
+import { withStyles } from '@material-ui/core/styles';
+import theme from '../../theme'
 
-const insertPackage = async (data: any) => {
-  console.log(data);
+function getModalStyle() {
+  const top = 50;
+  const left = 50
 
-  const result = await fetchRequest('upload.php', {
-    method: 'POST',
-    body: data.images
-  })
-  console.log(result);
-
-  return result
+  return {
+    top: `${top}%`,
+    left: `${left}%`,
+    transform: `translate(-${top}%, -${left}%)`,
+  };
 }
 
-
-
-const CreatePackage = () => {
+const CreatePackage = (props: any) => {
 
   const [ selectedImages, selectImages ] = useState(Array())
+  const [ alert, showAlert ] = useState(false)
+  const [modalStyle] = React.useState(getModalStyle)
   const [ details, setDetails ] = useState({
     name: null,
     smallDescription: null,
@@ -29,6 +31,41 @@ const CreatePackage = () => {
     exclusions: null,
     price: null
   })
+
+  const { classes } = props
+
+  const insertPackage = async (data: any) => {
+    console.log(data.images);
+    //let result = { data: { images: []} }
+    //const hasPhotos = data.images && data.images.length >
+    const result: any = await requestUploadImage(data.images)
+    if (!result.error) {
+      console.log(result);
+
+      data.images = result.data.images
+      const insertResult = await fetchRequest('create_package.php', {
+        method: 'POST',
+        body: JSON.stringify(data)
+      }, true)
+
+      if (insertResult.message === 'success') {
+        selectImages(Array())
+        setDetails({
+          name: null,
+          smallDescription: null,
+          description: null,
+          inclusions: null,
+          exclusions: null,
+          price: null
+        })
+
+        showAlert(true)
+      }
+      console.log(insertResult);
+    }
+  }
+
+
 
 
   return(
@@ -39,13 +76,35 @@ const CreatePackage = () => {
           const det = Object.assign(details, newDetails)
           setDetails(det)
           }}
-        insertPackage={() => insertPackage({data: {
+        insertPackage={() => insertPackage({
           ...details,
           images: selectedImages
-        }})}
+        })}
       />
+      <Modal
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+        open={alert}
+        onClose={() => showAlert(false)}
+      >
+      <div style={modalStyle} className={classes.paper}>
+        <h2 id="simple-modal-title">Text in a modal</h2>
+        <p id="simple-modal-description">
+          Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+        </p>
+        </div>
+      </Modal>
     </React.Fragment>
   )
 }
 
-export default CreatePackage
+export default withStyles({
+  paper: {
+    position: 'absolute',
+    width: 400,
+    backgroundColor: theme.palette.background.paper,
+    border: '2px solid #000',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  }
+})(CreatePackage)
