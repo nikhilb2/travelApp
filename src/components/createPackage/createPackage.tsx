@@ -6,6 +6,7 @@ import { requestUploadImage, fetchRequest } from '../../utils/request'
 import Modal from '@material-ui/core/Modal';
 import { withStyles } from '@material-ui/core/styles';
 import theme from '../../theme'
+import Loader from '../common/loader'
 
 function getModalStyle() {
   const top = 50;
@@ -22,20 +23,24 @@ const CreatePackage = (props: any) => {
 
   const [ selectedImages, selectImages ] = useState(Array())
   const [ alert, showAlert ] = useState(false)
+  const [ message, setMessage ] = useState(null)
   const [modalStyle] = React.useState(getModalStyle)
+  const [ loader, setLoader ] = useState(false)
   const [ details, setDetails ] = useState({
-    name: null,
-    smallDescription: null,
-    description: null,
-    inclusions: null,
-    exclusions: null,
-    price: null
+    name: '',
+    smallDescription: '',
+    description: '',
+    inclusions: '',
+    exclusions: '',
+    price: ''
   })
 
   const { classes } = props
+  //console.log(details);
 
   const insertPackage = async (data: any) => {
-    console.log(data.images);
+    setLoader(true)
+  //  console.log(data.images);
     //let result = { data: { images: []} }
     //const hasPhotos = data.images && data.images.length >
     const result: any = await requestUploadImage(data.images)
@@ -49,16 +54,21 @@ const CreatePackage = (props: any) => {
       }, true)
 
       if (insertResult.message === 'success') {
+        setLoader(false)
         selectImages(Array())
         setDetails({
-          name: null,
-          smallDescription: null,
-          description: null,
-          inclusions: null,
-          exclusions: null,
-          price: null
+          name: '',
+          smallDescription: '',
+          description: '',
+          inclusions: '',
+          exclusions: '',
+          price: ''
         })
-
+        setMessage(insertResult.message)
+        showAlert(true)
+      } else if (insertResult.error) {
+        setLoader(false)
+        setMessage(insertResult.error)
         showAlert(true)
       }
       console.log(insertResult);
@@ -73,25 +83,28 @@ const CreatePackage = (props: any) => {
       <ImageSelector selectImages={selectImages} selectedImages={selectedImages} />
       <CreatePackageForm
         setDetails={(newDetails: any) => {
-          const det = Object.assign(details, newDetails)
+          console.log(newDetails)
+          const det = Object.assign({}, details, newDetails)
           setDetails(det)
-          }}
+        }}
+        details={details}
         insertPackage={() => insertPackage({
           ...details,
           images: selectedImages
         })}
       />
+      {loader && <Loader /> }
       <Modal
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
         open={alert}
         onClose={() => showAlert(false)}
       >
-      <div style={modalStyle} className={classes.paper}>
-        <h2 id="simple-modal-title">Text in a modal</h2>
-        <p id="simple-modal-description">
-          Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-        </p>
+        <div style={modalStyle} className={classes.paper}>
+          <h2 id="simple-modal-title">Status</h2>
+          <p id="simple-modal-description">
+            {message}
+          </p>
         </div>
       </Modal>
     </React.Fragment>

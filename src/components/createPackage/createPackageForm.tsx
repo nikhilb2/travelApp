@@ -6,7 +6,9 @@ import Button from '@material-ui/core/Button'
 
 const Form = (props: any) => {
   //const [ title, setTitle ] = useState(null)
-  const { classes, setDetails, insertPackage } = props
+  const { classes, setDetails, insertPackage, details } = props
+  //console.log(details);
+
   return(
     <React.Fragment>
       <Box className={classes.root}>
@@ -16,9 +18,13 @@ const Form = (props: any) => {
           type="text"
           name="text"
           //autoComplete="email"
+          value={details.name}
           margin="normal"
           variant="outlined"
-          onChange={(e: any) => setDetails({name: e.target.value})}
+          onChange={(e: any) => {
+            //console.log(e.target.value)
+            setDetails({name: e.target.value})
+          }}
         />
         <TextField
           id="outlined-email-input"
@@ -28,6 +34,7 @@ const Form = (props: any) => {
           //autoComplete="email"
           margin="normal"
           variant="outlined"
+          value={details.smallDescription}
           onChange={(e: any) => setDetails({smallDescription: e.target.value})}
         />
         <TextField
@@ -38,6 +45,7 @@ const Form = (props: any) => {
           //autoComplete="email"
           margin="normal"
           variant="outlined"
+          value={details.description}
           onChange={(e: any) => setDetails({description: e.target.value})}
         />
         <TextField
@@ -48,6 +56,7 @@ const Form = (props: any) => {
           //autoComplete="email"
           margin="normal"
           variant="outlined"
+          value={details.inclusions}
           onChange={(e: any) => setDetails({inclusions: e.target.value})}
         />
         <TextField
@@ -58,6 +67,7 @@ const Form = (props: any) => {
           //autoComplete="email"
           margin="normal"
           variant="outlined"
+          value={details.exclusions}
           onChange={(e: any) => setDetails({exclusions: e.target.value})}
         />
         <TextField
@@ -68,6 +78,7 @@ const Form = (props: any) => {
           //autoComplete="email"
           margin="normal"
           variant="outlined"
+          value={details.price}
           onChange={(e: any) => setDetails({price: e.target.value})}
         />
         <Button onClick={insertPackage}>Insert</Button>
