@@ -9,7 +9,7 @@ import theme from '../../theme'
 const PackageContainer = (props: any) => {
   const { classes, pack } = props
   return(
-    <Box>
+    <Box className={classes.root}>
       <article>
         <section>
           <Box boxShadow={4} className={classes.imageAndDescriptionContainer}>
@@ -17,7 +17,7 @@ const PackageContainer = (props: any) => {
               <ImageViewer images={pack.images} />
             </Box>
             <Box className={classes.rightSide}>
-              <PackageDescription />
+              <PackageDescription pack={pack}/>
             </Box>
           </Box>
         </section>
@@ -27,8 +27,7 @@ const PackageContainer = (props: any) => {
               Details
             </Typography>
             <Typography className={classes.descriptionText}>
-              Phi phi island Phi phi islandPhi phi island  Phi phi islandPhiPhi phi islandPhi phi islandPhi phi island Phi phi island Phi phi islandPhi phi islandPhi phi island
-              Phi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi islandPhi phi island
+              {pack.description}
             </Typography>
           </Box>
         </section>
@@ -38,6 +37,9 @@ const PackageContainer = (props: any) => {
 }
 
 export default withStyles({
+  root: {
+    width: '95%'
+  },
   imageAndDescriptionContainer: {
     display: 'flex',
     flexDirection: 'row',
