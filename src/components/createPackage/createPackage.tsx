@@ -23,7 +23,7 @@ const CreatePackage = (props: any) => {
 
   const [ selectedImages, selectImages ] = useState(Array())
   const [ alert, showAlert ] = useState(false)
-  const [ message, setMessage ] = useState(null)
+  const [ message, setMessage ] = useState('')
   const [modalStyle] = React.useState(getModalStyle)
   const [ loader, setLoader ] = useState(false)
   const [ details, setDetails ] = useState({
@@ -37,42 +37,49 @@ const CreatePackage = (props: any) => {
 
   const { classes } = props
   //console.log(details);
-
+  const { name, smallDescription, description, inclusions, exclusions, price  } = details
   const insertPackage = async (data: any) => {
-    setLoader(true)
-  //  console.log(data.images);
-    //let result = { data: { images: []} }
-    //const hasPhotos = data.images && data.images.length >
-    const result: any = await requestUploadImage(data.images)
-    if (!result.error) {
-      console.log(result);
+    if (name && smallDescription && description && inclusions && exclusions && price && data.images.length > 0) {
 
-      data.images = result.data.images
-      const insertResult = await fetchRequest('create_package.php', {
-        method: 'POST',
-        body: JSON.stringify(data)
-      }, true)
+      setLoader(true)
+    //  console.log(data.images);
+      //let result = { data: { images: []} }
+      //const hasPhotos = data.images && data.images.length >
+      const result: any = await requestUploadImage(data.images)
+      if (!result.error) {
+        console.log(result);
 
-      if (insertResult.message === 'success') {
-        setLoader(false)
-        selectImages(Array())
-        setDetails({
-          name: '',
-          smallDescription: '',
-          description: '',
-          inclusions: '',
-          exclusions: '',
-          price: ''
-        })
-        setMessage(insertResult.message)
-        showAlert(true)
-      } else if (insertResult.error) {
-        setLoader(false)
-        setMessage(insertResult.error)
-        showAlert(true)
+        data.images = result.data.images
+        const insertResult = await fetchRequest('create_package.php', {
+          method: 'POST',
+          body: JSON.stringify(data)
+        }, true)
+
+        if (insertResult.message === 'success') {
+          setLoader(false)
+          selectImages(Array())
+          setDetails({
+            name: '',
+            smallDescription: '',
+            description: '',
+            inclusions: '',
+            exclusions: '',
+            price: ''
+          })
+          setMessage(insertResult.message)
+          showAlert(true)
+        } else if (insertResult.error) {
+          setLoader(false)
+          setMessage(insertResult.error)
+          showAlert(true)
+        }
+        console.log(insertResult);
       }
-      console.log(insertResult);
+    } else {
+      setMessage('Something is missing')
+      showAlert(true)
     }
+
   }
 
 
