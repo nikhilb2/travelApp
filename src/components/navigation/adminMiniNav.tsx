@@ -10,17 +10,8 @@ const MiniNav = (props: any) => {
   return(
     <div className={classes.container}>
       <HomeIcon className={classes.home}/>
-      <Button onClick={() => selectMenu('packages')} color='inherit'>
+      <Button className={classes.button} onClick={() => selectMenu('packages')} color='inherit'>
         Packages
-      </Button>
-      <Button color='inherit'>
-        Destinations
-      </Button>
-      <Button color='inherit'>
-        Enquiries
-      </Button>
-      <Button color='inherit'>
-        Bookings
       </Button>
     </div>
   )
@@ -30,15 +21,17 @@ export default withStyles({
   container: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'left',
     backgroundColor: 'black',
     color: theme.palette.primary.light,
-    [theme.breakpoints.down('sm')]: {
-      display: 'none'
-    }
+  },
+  button: {
+    marginRight: theme.spacing(1),
+    marginLeft: theme.spacing(4)
   },
   home: {
     marginTop: 'auto',
-    marginBottom  : 'auto'
+    marginBottom  : 'auto',
+    marginLeft  : theme.spacing(2)
   }
 })(MiniNav)
