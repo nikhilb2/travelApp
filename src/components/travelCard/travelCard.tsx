@@ -12,6 +12,7 @@ import theme from '../../theme'
 const useStyles = makeStyles({
   card: {
     width: 150,
+    margin: theme.spacing(2)
   },
   media: {
     height: 120,
