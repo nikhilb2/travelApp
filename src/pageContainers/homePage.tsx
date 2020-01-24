@@ -9,7 +9,7 @@ import Footer from '../components/common/footer'
 import { withStyles } from '@material-ui/styles'
 import theme from '../theme'
 const HomePage = (props: any) => {
-  const { classes, user } = props
+  const { classes, user, packages } = props
   console.log(props)
   return(
     <div>
@@ -18,7 +18,7 @@ const HomePage = (props: any) => {
       <MiniNav />
       <Banner />
       <div className={classes.travelCard}>
-        <TravelCards data={[1,2,3,5,6,7]} />
+        <TravelCards data={packages} />
       </div>
       <HolidayCards data={[1,2,3,4,5,6]} />
       <Footer />

@@ -11,7 +11,7 @@ import theme from '../../theme'
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: 150,
+    width: 150,
   },
   media: {
     height: 120,
@@ -37,8 +37,10 @@ const useStyles = makeStyles({
   }
 });
 
-export default function MediaCard() {
+export default function MediaCard(props: any) {
   const classes = useStyles();
+  const { data } = props
+  console.log(data);
 
   return (
     <Card className={classes.card}>
@@ -47,16 +49,16 @@ export default function MediaCard() {
           <a className={classes.anchor}>
             <CardMedia
               className={classes.media}
-              image="/static/phi.jpg"
-              title="Contemplative Reptile"
-              children={<Typography className={classes.price}>₹50000</Typography>}
+              image={data.images[0] ? 'https://zefiri.com/travel-api/' + data.images[0].thumb : "/static/phi.jpg" }
+              title={data.name}
+              children={<Typography className={classes.price}>₹{data.price}</Typography>}
             />
             <CardContent className={classes.cardContent}>
               <Typography className={classes.heading} variant="subtitle1" >
-                Luxury Phuket Phi phi
+                {data.name}
               </Typography>
               <Typography className={classes.miniDescription} variant="caption" color="textSecondary" component="p">
-                Experience 5 nights 4 days in luxurios resort in a peacefull resort in the jungles of phiphi island
+                {data.smallDescription}
               </Typography>
             </CardContent>
           </a>

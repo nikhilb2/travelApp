@@ -7,7 +7,7 @@ const TravelCardsConatainer = (props: any) => {
   const { classes, data } = props
   return(
     <div className={classes.root}>
-      {data && data.map((card: number,i: number) => <div key={card+""+i}><TravelCard /></div>)}
+      {data && data.map((item: any) => <div key={item.id}><TravelCard data={item}/></div>)}
     </div>
   )
 }
