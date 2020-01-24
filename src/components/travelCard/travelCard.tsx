@@ -45,7 +45,7 @@ export default function MediaCard(props: any) {
   return (
     <Card className={classes.card}>
       <CardActionArea>
-        <Link href="/package">
+        <Link href={{ pathname: '/package', query: { id: data.id }}}>
           <a className={classes.anchor}>
             <CardMedia
               className={classes.media}

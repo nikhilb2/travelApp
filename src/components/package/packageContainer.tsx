@@ -7,14 +7,14 @@ import PackageDescription from './packageDescription'
 import theme from '../../theme'
 
 const PackageContainer = (props: any) => {
-  const { classes } = props
+  const { classes, pack } = props
   return(
     <Box>
       <article>
         <section>
           <Box boxShadow={4} className={classes.imageAndDescriptionContainer}>
             <Box className={classes.leftSide}>
-              <ImageViewer />
+              <ImageViewer images={pack.images} />
             </Box>
             <Box className={classes.rightSide}>
               <PackageDescription />

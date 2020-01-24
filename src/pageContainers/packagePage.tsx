@@ -8,7 +8,7 @@ import { withStyles } from '@material-ui/styles'
 //import theme from '../theme'
 
 const PackagePage = (props: any) => {
-  const { user, classes } = props
+  const { user, classes, pack } = props
   console.log(props)
   return(
     <div>
@@ -16,7 +16,7 @@ const PackagePage = (props: any) => {
       <NavBar />
       <MiniNav />
       <div className={classes.packageContainer}>
-        <PackageContainer />
+        <PackageContainer pack={pack}/>
       </div>
       <Footer />
     </div>

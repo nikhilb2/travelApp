@@ -3,30 +3,29 @@ import { withStyles } from '@material-ui/core/styles'
 //import Typography from '@material-ui/core/Typography'
 import theme from '../../theme'
 
-const imageArray = ['static/phi.jpg', 'static/cat.jpg']
+//const imageArray = ['static/phi.jpg', 'static/cat.jpg']
 
 const ImageView = (props: any) => {
-  const { classes } = props
-  const [ selectedImage, changeImage ] = useState(imageArray[0])
+  const { classes, images } = props
+  const [ selectedImage, changeImage ] = useState(images && images[0] && images[0].image ? images[0].image : '/static/phi.jpg')
   return(
     <React.Fragment>
       <div className={classes.root}>
       <meta property="og:image" content={selectedImage} />
         <div className={classes.selectedImageHolder}>
           <figure>
-            <img src={selectedImage} alt ='selectedImage' className={classes.selectedImage}/>
-          <figcaption>
-            Luxury phi pihi @Rs50000
-          </figcaption>
+            <img src={'https://zefiri.com/travel-api/'+selectedImage} alt ='selectedImage' className={classes.selectedImage}/>
           </figure>
         </div>
+        {images && images.length > 0 &&
         <div className={classes.imageSelector}>
-          {imageArray.map((image: string, i: number) => <div onClick={() => {
-            changeImage(image)
+          {images && images.map((image: any, i: number) => <div onClick={() => {
+            changeImage(image.image)
           }} key={i}>
-              <img className={ image === selectedImage ? classes.selectedImg : classes.img} src={image} alt={'img' + i} />
+              <img className={ image.image === selectedImage ? classes.selectedImg : classes.img} src={"https://zefiri.com/travel-api/"+image.image} alt={'img' + i} />
             </div>)}
         </div>
+      }
       </div>
     </React.Fragment>
   )
