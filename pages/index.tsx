@@ -1,6 +1,8 @@
 import React from 'react';
 import HomePage from '../src/pageContainers/homePage';
 import { userDetails } from '../hocs/auth-hoc'
+import fetch from 'isomorphic-unfetch'
+import { decoratedUrl } from '../src/utils/request'
 
 const Index = (props: any) => {
   return(
@@ -11,7 +13,9 @@ const Index = (props: any) => {
 }
 
 Index.getInitialProps = async () => {
-  return {test: 'test'}
+  const packagesFetch = await fetch(decoratedUrl('get_packages.php'))
+  const packages = await packagesFetch.json()
+  return {packages: packages.data}
 }
 
 
