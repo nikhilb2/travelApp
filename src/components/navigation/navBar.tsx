@@ -5,6 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button'
+import Link from 'next/link'
 
 const styles = {
   root: {
@@ -28,9 +29,13 @@ const NavBar = (props: any) => {
     <div className={classes.root}>
       <AppBar position="static" color={'inherit'} elevation={0}>
         <Toolbar>
-        <Button color="primary">
-          <img className={classes.logo} src="static/bmc.png" alt="bmc" />
-        </Button>
+        <Link href={{ pathname: '/'}}>
+          <a>
+            <Button color="primary">
+                <img className={classes.logo} src="static/bmc.png" alt="bmc" />
+            </Button>
+          </a>
+        </Link>
           <Typography variant="h6" className={classes.title}>
 
           </Typography>

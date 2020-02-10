@@ -3,12 +3,17 @@ import Typography from '@material-ui/core/Typography'
 import HomeIcon from '@material-ui/icons/Home';
 import { withStyles } from '@material-ui/styles'
 import theme from '../../theme'
+import Link from 'next/link'
 
 const MiniNav = (props: any) => {
   const { classes } = props
   return(
     <div className={classes.container}>
-      <HomeIcon />
+      <Link href={{ pathname: '/'}}>
+        <a className={classes.link}>
+          <HomeIcon />
+        </a>
+      </Link>
       <Typography>
         Menu
       </Typography>
@@ -53,5 +58,9 @@ export default withStyles({
     [theme.breakpoints.down('sm')]: {
       display: 'none'
     }
+  },
+  link: {
+    textDecoration: 'none',
+    color: theme.palette.primary.light,
   }
 })(MiniNav)
