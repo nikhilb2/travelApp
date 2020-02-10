@@ -31,6 +31,10 @@ export default withStyles({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'flex-start',
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+      marginBottom: theme.spacing(1)
+    },
     marginTop: theme.spacing(3)
   },
   heading: {
@@ -60,7 +64,10 @@ export default withStyles({
     border: `1px solid ${theme.palette.secondary.dark}`,
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    height: 'fit-content'
+    height: 'fit-content',
+    [theme.breakpoints.down('sm')]: {
+      marginBottom: theme.spacing(1)
+    },
 
   }
 })(Table)

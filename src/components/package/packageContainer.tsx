@@ -44,7 +44,8 @@ export default withStyles({
     display: 'flex',
     flexDirection: 'row',
     [theme.breakpoints.down('sm')]: {
-      flexDirection: 'column'
+      flexDirection: 'column',
+      width: '100%'
     },
     justifyContent: 'space-around',
     padding: theme.spacing(4),
@@ -62,7 +63,8 @@ export default withStyles({
   rightSide: {
     [theme.breakpoints.down('sm')]: {
       width: '100%'
-    }
+    },
+    width: '60%'
   },
   description: {
     margin: theme.spacing(1),

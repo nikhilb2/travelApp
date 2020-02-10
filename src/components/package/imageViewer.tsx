@@ -38,17 +38,24 @@ export default withStyles({
   img: {
     height: 70,
     margin: theme.spacing(1),
+    [theme.breakpoints.down('sm')]: {
+      height: 50,
+    },
   //  border: `1px solid ${theme.palette.primary.dark}`
   },
   selectedImg: {
     height: 70,
+    [theme.breakpoints.down('sm')]: {
+      height: 50,
+    },
     margin: theme.spacing(1),
     border: `2px solid ${theme.palette.primary.dark}`
   },
   imageSelector: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    flexWrap: 'wrap'
   },
   selectedImage: {
     height: 200
