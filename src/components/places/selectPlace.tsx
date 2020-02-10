@@ -38,7 +38,7 @@ const SelectPlace = () => {
 
         }}
       />
-      {result.length > 0 && <ResultList />}
+      {result.length > 0 && <ResultList data={result} />}
     </div>
   )
 }
