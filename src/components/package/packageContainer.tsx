@@ -69,6 +69,9 @@ export default withStyles({
   description: {
     margin: theme.spacing(1),
     width: '80%',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%'
+    },
     marginRight: 'auto',
     marginLeft: 'auto'
   },
