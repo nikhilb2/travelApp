@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
+import SelectPlace from '../places/selectPlace'
 import theme from '../../theme'
 
 const Form = (props: any) => {
@@ -131,6 +132,7 @@ const Form = (props: any) => {
           value={details.price}
           onChange={(e: any) => setDetails({price: e.target.value})}
         />
+        <SelectPlace />
         <Button onClick={insertPackage}>Insert</Button>
       </Box>
     </React.Fragment>
