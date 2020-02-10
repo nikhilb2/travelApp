@@ -7,7 +7,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-
+import Button from '@material-ui/core/Button';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function AlignItemsList(props: any) {
   const classes = useStyles();
-  const { data } = props
+  const { data, showModal } = props
   return (
     <List className={classes.root}>
       {data.map((item: any, i: number) => <div>
@@ -50,7 +50,7 @@ export default function AlignItemsList(props: any) {
         {data.length - 1 <  i && <Divider variant="inset" component="li" />}
       </div>)}
 
-
+      <Button onClick={() => showModal(true)}>Add New</Button>
     </List>
   );
 }
