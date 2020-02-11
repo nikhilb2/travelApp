@@ -9,7 +9,7 @@ import theme from '../../theme'
 
 const Form = (props: any) => {
   //const [ title, setTitle ] = useState(null)
-  const { classes, setDetails, insertPackage, details } = props
+  const { classes, setDetails, insertPackage, details, select } = props
   const [ exc, setExc ] = useState('')
   const [ inc, setInc ] = useState('')
   //console.log(details);
@@ -132,7 +132,7 @@ const Form = (props: any) => {
           value={details.price}
           onChange={(e: any) => setDetails({price: e.target.value})}
         />
-        <SelectPlace />
+        <SelectPlace select={select}/>
         <Button onClick={insertPackage}>Insert</Button>
       </Box>
     </React.Fragment>

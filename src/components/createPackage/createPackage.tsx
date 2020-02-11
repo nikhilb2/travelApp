@@ -32,14 +32,15 @@ const CreatePackage = (props: any) => {
     description: '',
     inclusions: '',
     exclusions: '',
-    price: ''
+    price: '',
+    place: ''
   })
 
   const { classes } = props
   //console.log(details);
-  const { name, smallDescription, description, inclusions, exclusions, price  } = details
+  const { name, smallDescription, description, inclusions, exclusions, price, place  } = details
   const insertPackage = async (data: any) => {
-    if (name && smallDescription && description && inclusions && exclusions && price && data.images.length > 0) {
+    if (name && smallDescription && description && inclusions && exclusions && price && data.images.length > 0 && place) {
 
       setLoader(true)
     //  console.log(data.images);
@@ -64,7 +65,8 @@ const CreatePackage = (props: any) => {
             description: '',
             inclusions: '',
             exclusions: '',
-            price: ''
+            price: '',
+            place: ''
           })
           setMessage(insertResult.message)
           showAlert(true)
@@ -76,6 +78,8 @@ const CreatePackage = (props: any) => {
         console.log(insertResult);
       }
     } else {
+      console.log(details);
+
       setMessage('Something is missing')
       showAlert(true)
     }
@@ -99,6 +103,10 @@ const CreatePackage = (props: any) => {
           ...details,
           images: selectedImages
         })}
+        select={(newPlace: any) => {
+          const newP = Object.assign({}, details, newPlace)
+          setDetails(newP)
+        }}
       />
       {loader && <Loader /> }
       <Modal

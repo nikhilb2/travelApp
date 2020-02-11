@@ -29,7 +29,7 @@ const SelectPlace = (props: any) => {
   const [ countriesResult, setCountriesResult ] = useState(Array())
   const [ modal, showModal ] = useState(false)
   const [modalStyle] = React.useState(getModalStyle)
-  const { classes } = props
+  const { classes, select } = props
   const getPlaces = async (k: string) => {
 
     const resultPlaces = await fetchRequest(`get_places.php?keyword=${k}`, {
@@ -64,6 +64,7 @@ const SelectPlace = (props: any) => {
       />
       <ResultList data={result} showModal={(value: boolean) => showModal(value)} value={selectedPlace} selectItem={(item: any) => {
         selectPlace(item)
+        select({place: item.id})
         setResults(Array())
       }} addNew={true}/>
       {/*<div><Button onClick={() => showModal(true)}>Add New</Button></div>*/}
