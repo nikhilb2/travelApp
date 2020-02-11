@@ -6,6 +6,7 @@ import ResultList from './resultList'
 import Modal from '@material-ui/core/Modal';
 import theme from '../../theme'
 //import Button from '@material-ui/core/Button';
+import AddNew from './addNewPlace'
 
 function getModalStyle() {
   const top = 50;
@@ -67,7 +68,7 @@ const SelectPlace = (props: any) => {
         <div style={modalStyle} className={classes.paper}>
           <h2 id="simple-modal-title">Status</h2>
           <p id="simple-modal-description">
-            Coming Soon
+            <AddNew />
           </p>
         </div>
       </Modal>
