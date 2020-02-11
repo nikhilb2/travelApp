@@ -28,7 +28,7 @@ export default function AlignItemsList(props: any) {
   const { data, showModal, addNew, selectItem } = props
   return (
     <List className={classes.root}>
-      {data.map((item: any, i: number) => <div>
+      {data.map((item: any, i: number) => <div key={item.id}>
         <Button className={classes.button} onClick={() => selectItem(item)}>
           <ListItem alignItems="flex-start">
             {item.image &&
@@ -56,7 +56,7 @@ export default function AlignItemsList(props: any) {
         {data.length + 1 >  i && <Divider variant="inset" component="li" />}
       </div>)}
       {addNew &&
-        <Button onClick={() => showModal(true)}>Add New</Button>
+        <Button onClick={() => showModal(true)}>Add New Place</Button>
       }
     </List>
   );

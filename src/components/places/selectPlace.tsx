@@ -76,14 +76,11 @@ const SelectPlace = (props: any) => {
         <div style={modalStyle} className={classes.paper}>
           <h2 id="simple-modal-title">Status</h2>
           <p id="simple-modal-description">
-            <AddNew resetCountry={() => selectCountry({id: null, country: null})} setResults={(value: [String]) => setCountriesResult(value)} selectedCountry={selectedCountry}/>
+            <AddNew selectItem={(item: any) => {
+              selectCountry(item)
+              setCountriesResult(Array())
+            }} countriesResult={countriesResult} resetCountry={() => selectCountry({id: null, country: null})} setResults={(value: [String]) => setCountriesResult(value)} selectedCountry={selectedCountry}/>
           </p>
-            <div className={classes.countryResult}>
-              <ResultList selectItem={(item: any) => {
-                selectCountry(item)
-                setCountriesResult(Array())
-              }} data={countriesResult} />
-            </div>
         </div>
       </Modal>
     </div>
@@ -98,9 +95,5 @@ export default withStyles({
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
-  },
-  countryResult: {
-    position: 'fixed',
-    marginTop: theme.spacing(-2)
   }
 })(SelectPlace)

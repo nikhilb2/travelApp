@@ -5,9 +5,12 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import { fetchRequest, requestUploadImage } from '../../utils/request'
 import ImageSelector from '../createPackage/imageSelector'
+import { withStyles } from '@material-ui/styles'
+//import theme from '../../theme'
+import ResultList from './resultList'
 
 const AddNew = (props: any) => {
-  const { setResults, selectedCountry, resetCountry } = props
+  const { setResults, selectedCountry, resetCountry, selectItem, classes, countriesResult } = props
 //  const [ keyword, setKeyword ] = useState("")
 //  const [ result, setResults ] = useState(Array())
   const [ keyword, setKeyword ] = useState("")
@@ -69,7 +72,10 @@ const AddNew = (props: any) => {
 
         }}
       />
-      <TextField
+      <div className={classes.countryResult}>
+        <ResultList selectItem={selectItem} data={countriesResult} />
+      </div>
+      {selectedCountry.country && <TextField
         id="outlined-email-input"
         label="Enter place name"
         type="text"
@@ -82,17 +88,25 @@ const AddNew = (props: any) => {
         //  console.log(e.target.value)
           setPlace(e.target.value)
         }}
-      />
-      <ImageSelector selectImages={selectImages} selectedImages={selectedImages} />
+      />}
+
+      {selectedCountry.country && place &&
+
+      <ImageSelector selectImages={selectImages} selectedImages={selectedImages} />}
+      {selectedCountry.country && place && selectedImages.length > 0 &&
       <Button onClick={() => addNewPlace({
         image: selectedImages,
         country: selectedCountry.id,
         place: place
 
-      })}>Add New Place</Button>
+      })}>Add New Place</Button>}
       {loader ? <Typography>Loading...</Typography> : <Typography>{message}</Typography>}
     </Box>
   )
 }
 
-export default AddNew
+export default withStyles({
+  countryResult: {
+    position: 'fixed',
+  }
+})(AddNew)
