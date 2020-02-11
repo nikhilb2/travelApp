@@ -35,7 +35,8 @@ export default withStyles({
       flexDirection: 'column',
       marginBottom: theme.spacing(1)
     },
-    marginTop: theme.spacing(3)
+    marginTop: theme.spacing(3),
+    width: '100%'
   },
   heading: {
   //  paddingRight: theme.spacing(1),
@@ -64,9 +65,11 @@ export default withStyles({
     border: `1px solid ${theme.palette.secondary.dark}`,
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
+    width: '50%',
     height: 'fit-content',
     [theme.breakpoints.down('sm')]: {
-      marginBottom: theme.spacing(1)
+      marginBottom: theme.spacing(1),
+      width: '100%'
     },
 
   }
