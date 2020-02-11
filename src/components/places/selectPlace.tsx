@@ -8,6 +8,7 @@ import theme from '../../theme'
 //import Button from '@material-ui/core/Button';
 import AddNew from './addNewPlace'
 
+
 function getModalStyle() {
   const top = 50;
   const left = 50
@@ -23,6 +24,7 @@ function getModalStyle() {
 const SelectPlace = (props: any) => {
   const [ keyword, setKeyword ] = useState("")
   const [ result, setResults ] = useState(Array())
+  const [ countriesResult, setCountriesResult ] = useState(Array())
   const [ modal, showModal ] = useState(false)
   const [modalStyle] = React.useState(getModalStyle)
   const { classes } = props
@@ -57,7 +59,7 @@ const SelectPlace = (props: any) => {
 
         }}
       />
-      <ResultList data={result} showModal={(value: boolean) => showModal(value)}/>
+      <ResultList data={result} showModal={(value: boolean) => showModal(value)} addNew={true}/>
       {/*<div><Button onClick={() => showModal(true)}>Add New</Button></div>*/}
       <Modal
         aria-labelledby="simple-modal-title"
@@ -68,8 +70,11 @@ const SelectPlace = (props: any) => {
         <div style={modalStyle} className={classes.paper}>
           <h2 id="simple-modal-title">Status</h2>
           <p id="simple-modal-description">
-            <AddNew />
+            <AddNew setResults={(value: [String]) => setCountriesResult(value)}/>
           </p>
+            <div className={classes.countryResult}>
+              <ResultList data={countriesResult} />
+            </div>
         </div>
       </Modal>
     </div>
@@ -84,5 +89,9 @@ export default withStyles({
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+  },
+  countryResult: {
+    position: 'fixed',
+    marginTop: theme.spacing(-2)
   }
 })(SelectPlace)

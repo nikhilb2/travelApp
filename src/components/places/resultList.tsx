@@ -11,46 +11,53 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      width: '100%',
-      maxWidth: 360,
+      width: 200,
       backgroundColor: theme.palette.background.paper,
     },
     inline: {
       display: 'inline',
     },
+    button: {
+      width: '100%'
+    }
   }),
 );
 
 export default function AlignItemsList(props: any) {
   const classes = useStyles();
-  const { data, showModal } = props
+  const { data, showModal, addNew } = props
   return (
     <List className={classes.root}>
       {data.map((item: any, i: number) => <div>
-        <ListItem alignItems="flex-start">
-          <ListItemAvatar>
-            <Avatar alt="Remy Sharp" src= {"https://zefiri.com/travel-api/" + item.image}/>
-          </ListItemAvatar>
-          <ListItemText
-            primary={item.place}
-            secondary={
-              <React.Fragment>
-                <Typography
-                  component="span"
-                  variant="body2"
-                  className={classes.inline}
-                  color="textPrimary"
-                >
-                  {item.country}
-                </Typography>
-              </React.Fragment>
-            }
-          />
-        </ListItem>
-        {data.length - 1 <  i && <Divider variant="inset" component="li" />}
+        <Button className={classes.button}>
+          <ListItem alignItems="flex-start">
+            {item.image &&
+            <ListItemAvatar>
+              <Avatar alt="Remy Sharp" src= {"https://zefiri.com/travel-api/" + item.image}/>
+            </ListItemAvatar>
+          }
+            <ListItemText
+              primary={item.place ? item.place : ""}
+              secondary={
+                <React.Fragment>
+                    <Typography
+                      component="span"
+                      variant="body2"
+                      className={classes.inline}
+                      color="textPrimary"
+                    >
+                      {item.country}
+                    </Typography>
+                </React.Fragment>
+              }
+            />
+          </ListItem>
+        </Button>
+        {data.length + 1 >  i && <Divider variant="inset" component="li" />}
       </div>)}
-
-      <Button onClick={() => showModal(true)}>Add New</Button>
+      {addNew &&
+        <Button onClick={() => showModal(true)}>Add New</Button>
+      }
     </List>
   );
 }
