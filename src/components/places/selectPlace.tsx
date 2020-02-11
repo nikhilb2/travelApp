@@ -23,6 +23,7 @@ function getModalStyle() {
 
 const SelectPlace = (props: any) => {
   const [ keyword, setKeyword ] = useState("")
+  const [ selectedPlace, selectPlace ] = useState({ place: null, id: null, country: null})
   const [ result, setResults ] = useState(Array())
   const [ countriesResult, setCountriesResult ] = useState(Array())
   const [ modal, showModal ] = useState(false)
@@ -49,9 +50,10 @@ const SelectPlace = (props: any) => {
         type="text"
         name="text"
         //autoComplete="email"
-        value={keyword}
+        value={selectedPlace.place || keyword}
         margin="normal"
         variant="outlined"
+        onFocus={() => selectPlace({place: null, id: null, country: null})}
         onChange={ (e: any) => {
         //  console.log(e.target.value)
         setKeyword(e.target.value)
@@ -59,7 +61,7 @@ const SelectPlace = (props: any) => {
 
         }}
       />
-      <ResultList data={result} showModal={(value: boolean) => showModal(value)} addNew={true}/>
+      <ResultList data={result} showModal={(value: boolean) => showModal(value)} value={selectedPlace} selectItem={(item: any) => selectPlace(item)} addNew={true}/>
       {/*<div><Button onClick={() => showModal(true)}>Add New</Button></div>*/}
       <Modal
         aria-labelledby="simple-modal-title"

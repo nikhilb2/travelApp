@@ -25,11 +25,11 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function AlignItemsList(props: any) {
   const classes = useStyles();
-  const { data, showModal, addNew } = props
+  const { data, showModal, addNew, selectItem } = props
   return (
     <List className={classes.root}>
       {data.map((item: any, i: number) => <div>
-        <Button className={classes.button}>
+        <Button className={classes.button} onClick={() => selectItem(item)}>
           <ListItem alignItems="flex-start">
             {item.image &&
             <ListItemAvatar>
