@@ -24,6 +24,7 @@ function getModalStyle() {
 const SelectPlace = (props: any) => {
   const [ keyword, setKeyword ] = useState("")
   const [ selectedPlace, selectPlace ] = useState({ place: null, id: null, country: null})
+  const [ selectedCountry, selectCountry ] = useState({ country: null, id: null})
   const [ result, setResults ] = useState(Array())
   const [ countriesResult, setCountriesResult ] = useState(Array())
   const [ modal, showModal ] = useState(false)
@@ -72,10 +73,13 @@ const SelectPlace = (props: any) => {
         <div style={modalStyle} className={classes.paper}>
           <h2 id="simple-modal-title">Status</h2>
           <p id="simple-modal-description">
-            <AddNew setResults={(value: [String]) => setCountriesResult(value)}/>
+            <AddNew resetCountry={() => selectCountry({id: null, country: null})} setResults={(value: [String]) => setCountriesResult(value)} selectedCountry={selectedCountry}/>
           </p>
             <div className={classes.countryResult}>
-              <ResultList data={countriesResult} />
+              <ResultList selectItem={(item: any) => {
+                selectCountry(item)
+                setCountriesResult(Array())
+              }} data={countriesResult} />
             </div>
         </div>
       </Modal>

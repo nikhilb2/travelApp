@@ -4,7 +4,7 @@ import Box from '@material-ui/core/Box'
 import { fetchRequest } from '../../utils/request'
 
 const AddNew = (props: any) => {
-  const { setResults } = props
+  const { setResults, selectedCountry, resetCountry } = props
 //  const [ keyword, setKeyword ] = useState("")
 //  const [ result, setResults ] = useState(Array())
   const [ keyword, setKeyword ] = useState("")
@@ -27,9 +27,10 @@ const AddNew = (props: any) => {
         type="text"
         name="text"
         autoComplete="off"
-        value={keyword}
+        value={selectedCountry.country || keyword}
         margin="normal"
         variant="outlined"
+        onFocus={() => resetCountry()}
         onChange={ (e: any) => {
         //  console.log(e.target.value)
         getCountries(e.target.value)
