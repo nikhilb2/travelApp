@@ -62,7 +62,10 @@ const SelectPlace = (props: any) => {
 
         }}
       />
-      <ResultList data={result} showModal={(value: boolean) => showModal(value)} value={selectedPlace} selectItem={(item: any) => selectPlace(item)} addNew={true}/>
+      <ResultList data={result} showModal={(value: boolean) => showModal(value)} value={selectedPlace} selectItem={(item: any) => {
+        selectPlace(item)
+        setResults(Array())
+      }} addNew={true}/>
       {/*<div><Button onClick={() => showModal(true)}>Add New</Button></div>*/}
       <Modal
         aria-labelledby="simple-modal-title"
