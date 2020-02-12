@@ -12,7 +12,7 @@ import theme from '../theme'
 
 
 const EditPackagePage = (props: any) => {
-  const { user, classes } = props
+  const { user, classes, pack } = props
   console.log(props)
   const [selectedMenu, selectMenu] = useState('null')
   console.log(selectedMenu)
@@ -26,7 +26,7 @@ const EditPackagePage = (props: any) => {
       }
       <Box className={classes.content} boxShadow={4}>
         {user && user.user && user.user.id === '69'
-          ? <EditPackage />
+          ? <EditPackage pack={pack}/>
           : <Typography>
             Error 404 Page not found
           </Typography>

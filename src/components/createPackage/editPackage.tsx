@@ -3,8 +3,11 @@ import { fetchRequest } from '../../utils/request'
 import TravelCards from '../travelCard/travelCardsContainer'
 import { withStyles } from '@material-ui/styles'
 
-const EditPackage = () => {
+const EditPackage = (props: any) => {
+  const { pack } = props
   const [ packages, setPackages ] = useState(Array())
+  console.log(props);
+
   const getPackages = async () => {
     const result = await fetchRequest(`get_packages.php`, {
       method: 'GET',
@@ -22,7 +25,9 @@ const EditPackage = () => {
   }, [0])
   return(
     <div>
-      <TravelCards data={packages} edit={true}/>
+      {pack ? "Coming Soon"
+        : <TravelCards data={packages} edit={true}/>
+      }
     </div>
   )
 }
