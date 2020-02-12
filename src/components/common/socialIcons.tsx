@@ -27,10 +27,10 @@ const SocialIcons = () => {
 
   return (
     <div className={classes.root}>
-      <img className={classes.margin} src="static/insta.svg" alt="insta" />
-      <img className={classes.margin} src="static/pin.svg" alt="pin" />
-      <img className={classes.margin} src="static/twit.svg" alt="twit" />
-      <img className={classes.margin} src="static/fb.svg" alt="fb" />
+      <img className={classes.margin} src="/static/insta.svg" alt="insta" />
+      <img className={classes.margin} src="/static/pin.svg" alt="pin" />
+      <img className={classes.margin} src="/static/twit.svg" alt="twit" />
+      <img className={classes.margin} src="/static/fb.svg" alt="fb" />
     </div>
   )
 }

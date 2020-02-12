@@ -46,7 +46,7 @@ class Register extends Component<Props, State> {
         className={classes.box}
       >
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <img className={classes.logo} src="static/bmc.png" alt="shopmate" />
+          <img className={classes.logo} src="/static/bmc.png" alt="shopmate" />
         </div>
         <div>
           <TextField

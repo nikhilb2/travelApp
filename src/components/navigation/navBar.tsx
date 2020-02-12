@@ -32,7 +32,7 @@ const NavBar = (props: any) => {
         <Link href={{ pathname: '/'}}>
           <a>
             <Button color="primary">
-                <img className={classes.logo} src="static/bmc.png" alt="bmc" />
+                <img className={classes.logo} src="/static/bmc.png" alt="bmc" />
             </Button>
           </a>
         </Link>

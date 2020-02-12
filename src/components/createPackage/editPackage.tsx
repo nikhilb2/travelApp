@@ -22,7 +22,7 @@ const EditPackage = () => {
   }, [0])
   return(
     <div>
-      <TravelCards data={packages} />
+      <TravelCards data={packages} edit={true}/>
     </div>
   )
 }

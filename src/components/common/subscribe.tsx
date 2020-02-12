@@ -36,7 +36,7 @@ const Subscribe = () => {
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <img src="static/email.svg" alt="email" />
+                <img src="/static/email.svg" alt="email" />
               </InputAdornment>
             )
           }}

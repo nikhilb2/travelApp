@@ -8,7 +8,7 @@ const Banner = (props: any) => {
   const { classes } = props
   return(
     <div className={classes.root}>
-      <div className={classes.image} style={{ backgroundImage: `url("static/trip.jpg")` }}>
+      <div className={classes.image} style={{ backgroundImage: `url("/static/trip.jpg")` }}>
         <div className={classes.searchBoxHolder}>
           <SearchBox />
         </div>

@@ -4,10 +4,10 @@ import TravelCard from './travelCard'
 
 
 const TravelCardsConatainer = (props: any) => {
-  const { classes, data } = props
+  const { classes, data, edit } = props
   return(
     <div className={classes.root}>
-      {data && data.map((item: any) => <div key={item.id}><TravelCard data={item}/></div>)}
+      {data && data.map((item: any) => <div key={item.id}><TravelCard edit={edit} data={item}/></div>)}
     </div>
   )
 }

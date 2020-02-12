@@ -40,13 +40,13 @@ const useStyles = makeStyles({
 
 export default function MediaCard(props: any) {
   const classes = useStyles();
-  const { data } = props
+  const { data, edit } = props
   console.log(data);
 
   return (
     <Card className={classes.card}>
       <CardActionArea>
-        <Link href={{ pathname: '/package', query: { id: data.id }}}>
+        <Link href={{ pathname: `${edit ? '/admin/packages/edit' : '/package'}`, query: { id: data.id }}}>
           <a className={classes.anchor}>
             <CardMedia
               className={classes.media}

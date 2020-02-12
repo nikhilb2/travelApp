@@ -143,7 +143,7 @@ class NavBarMen extends Component<Props, State> {
               </Typography>
 
               <div style={{ display: 'flex' }}>
-                <img className={classes.currencyLogo} src="static/india.svg" alt="gb" />
+                <img className={classes.currencyLogo} src="/static/india.svg" alt="gb" />
                 <Typography style={{ marginTop: '5px', margin: '0.5rem' }}>
                   ₹ INR
                 </Typography>
