@@ -8,6 +8,8 @@ import theme from '../../theme'
 
 const PackageContainer = (props: any) => {
   const { classes, pack } = props
+  console.log(pack);
+
   return(
     <Box className={classes.root}>
       <article>

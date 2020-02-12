@@ -13,6 +13,9 @@ const MiniNav = (props: any) => {
       <Button className={classes.button} onClick={() => selectMenu('packages')} color='inherit'>
         Packages
       </Button>
+      <Button className={classes.button} onClick={() => selectMenu('editpackage')} color='inherit'>
+        Edit Package
+      </Button>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react';
-import AdminPage from '../src/pageContainers/adminPage';
-import { userDetails } from '../hocs/auth-hoc'
+import AdminPage from '../../src/pageContainers/adminPage';
+import { userDetails } from '../../hocs/auth-hoc'
 
 
 const Admin = (props: any) => {
