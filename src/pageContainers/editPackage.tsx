@@ -24,25 +24,20 @@ const EditPackagePage = (props: any) => {
         ? <AdminMiniNav selectMenu={selectMenu}/>
         : <MiniNav />
       }
-      <Box className={classes.content} boxShadow={4}>
         {user && user.user && user.user.id === '69'
           ? <EditPackage pack={pack}/>
-          : <Typography>
-            Error 404 Page not found
-          </Typography>
+          : <Box className={classes.content} boxShadow={4}>
+              <Typography>
+                Error 404 Page not found
+              </Typography>
+            </Box>
         }
-      </Box>
       <Footer />
     </React.Fragment>
   )
 }
 
 export default withStyles({
-  packageContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center'
-  },
   content: {
     width: '80%',
     marginRight: 'auto',
