@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { withStyles } from "@material-ui/core/styles"
 import Box from "@material-ui/core/Box"
 import Typography from "@material-ui/core/Typography"
@@ -6,9 +6,8 @@ import TextField from "@material-ui/core/TextField"
 import theme from "../../../theme"
 
 const Table = (props: any) => {
-  const { data, classes } = props
-  const [ inclusions, setInclusions ] = useState(data.inclusions.split('#'))
-  const [ exclusions, setExclusions ] = useState(data.exclusions.split('#'))
+  const { classes, inclusions, exclusions, setInclusions, setExclusions } = props
+
   return (
     <React.Fragment>
     <Box className={classes.root}>

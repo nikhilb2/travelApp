@@ -6,7 +6,6 @@ import PackageContainer from './editPackage/packageContainer'
 const EditPackage = (props: any) => {
   const { pack, classes } = props
   const [ packages, setPackages ] = useState(Array())
-  console.log(props);
 
   const getPackages = async () => {
     const result = await fetchRequest(`get_packages.php`, {
@@ -16,9 +15,6 @@ const EditPackage = (props: any) => {
     if (!result.error) {
       setPackages(result.data)
     }
-    console.log(result);
-    console.log(packages);
-
   }
   useEffect(() => {
     getPackages()

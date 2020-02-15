@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Box from '@material-ui/core/Box'
 //import Typography from '@material-ui/core/Typography'
@@ -9,8 +9,9 @@ import theme from '../../../theme'
 
 const PackageContainer = (props: any) => {
   const { classes, pack } = props
-  console.log(pack);
-
+  const [ description, setDescription ] = useState(pack.description)
+  const [ inclusions , setInclusions ] = useState(pack.inclusions.split('#'))
+  const [ exclusions, setExclusions ] = useState(pack.exclusions.split('#'))
   return(
     <Box className={classes.root}>
       <article>
@@ -20,7 +21,7 @@ const PackageContainer = (props: any) => {
               <ImageViewer images={pack.images} />
             </Box>
             <Box className={classes.rightSide}>
-              <PackageDescription pack={pack}/>
+              <PackageDescription pack={pack} inclusions={inclusions} exclusions={exclusions} setExclusions={setExclusions} setInclusions={setInclusions}/>
             </Box>
           </Box>
         </section>
@@ -28,11 +29,11 @@ const PackageContainer = (props: any) => {
           <Box boxShadow={4} className={classes.description}>
             <TextField
               className={classes.descriptionText}
-               id="standard-multiline-flexible"
+               id="descriptiontextfield"
                label="Details"
                multiline
-               value={pack.description}
-            //   onChange={handleChange}
+               value={description}
+               onChange={(e: any) => setDescription(e.target.value)}
              />
           </Box>
         </section>

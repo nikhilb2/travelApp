@@ -9,7 +9,7 @@ import theme from '../../../theme'
 
 
 const PackageDescription = (props: any) => {
-  const { classes, pack } = props
+  const { classes, pack, inclusions, exclusions, setInclusions, setExclusions } = props
   return(
     <Box>
       <TextField
@@ -23,7 +23,7 @@ const PackageDescription = (props: any) => {
       <Box className={classes.priceAndButtonContainer}>
         <Box className={classes.priceTag}><TextField label="Price" value={pack.price}/></Box>
       </Box>
-      <Table data={pack} />
+      <Table data={pack} inclusions={inclusions} exclusions={exclusions} setExclusions={setExclusions} setInclusions={setInclusions} />
     </Box>
   )
 }
