@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { withStyles } from "@material-ui/core/styles"
 import Box from "@material-ui/core/Box"
 import Typography from "@material-ui/core/Typography"
@@ -7,17 +7,20 @@ import theme from "../../../theme"
 
 const Table = (props: any) => {
   const { data, classes } = props
-
+  const [ inclusions, setInclusions ] = useState(data.inclusions.split('#'))
+  const [ exclusions, setExclusions ] = useState(data.exclusions.split('#'))
   return (
+    <React.Fragment>
     <Box className={classes.root}>
       <div className={classes.tableHolder}>
         <Typography className={classes.heading} style={{ color: "green" }}>
           Inclusions
         </Typography>
         <div className={classes.content}>
-          {data.inclusions.split("#").map((row: string) => (
-            <div key={row}>
+          {inclusions.map((row: string, i: number) => (
+            <div key={"inclusionsdiv" + i}>
               <TextField
+                id={ "inclusions" + i}
                 InputProps={{
                   classes: {
                     input: classes.resize
@@ -25,6 +28,11 @@ const Table = (props: any) => {
                 }}
                 className={classes.contentText}
                 value={row}
+                onChange={(e: any) => {
+                  let newInc = [...inclusions]
+                  newInc[i] = e.target.value
+                  setInclusions(newInc)
+                }}
               />
             </div>
           ))}
@@ -35,9 +43,10 @@ const Table = (props: any) => {
           Exclusions
         </Typography>
         <div className={classes.content}>
-          {data.exclusions.split("#").map((row: string) => (
-            <div key={row}>
+          {exclusions.map((row: string, i: number) => (
+            <div key={"exclusionsdiv" + i}>
               <TextField
+                id={"exclusions" + i}
                 InputProps={{
                   classes: {
                     input: classes.resize
@@ -45,12 +54,18 @@ const Table = (props: any) => {
                 }}
                 className={classes.contentText}
                 value={row}
+                onChange={(e: any) => {
+                  let newExc = [...exclusions]
+                  newExc[i] = e.target.value
+                  setExclusions(newExc)
+                }}
               />
             </div>
           ))}
         </div>
       </div>
     </Box>
+    </React.Fragment>
   )
 }
 
