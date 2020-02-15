@@ -1,9 +1,10 @@
 import React from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Box from '@material-ui/core/Box'
-import Typography from '@material-ui/core/Typography'
+//import Typography from '@material-ui/core/Typography'
 import ImageViewer from './imageViewer'
 import PackageDescription from './packageDescription'
+import TextField from '@material-ui/core/TextField'
 import theme from '../../../theme'
 
 const PackageContainer = (props: any) => {
@@ -25,12 +26,14 @@ const PackageContainer = (props: any) => {
         </section>
         <section>
           <Box boxShadow={4} className={classes.description}>
-            <Typography className={classes.detailsHeading} variant='h6'>
-              Details
-            </Typography>
-            <Typography className={classes.descriptionText}>
-              {pack.description}
-            </Typography>
+            <TextField
+              className={classes.descriptionText}
+               id="standard-multiline-flexible"
+               label="Details"
+               multiline
+               value={pack.description}
+            //   onChange={handleChange}
+             />
           </Box>
         </section>
       </article>
@@ -78,7 +81,8 @@ export default withStyles({
     marginLeft: 'auto'
   },
   descriptionText: {
-    padding: theme.spacing(1)
+    padding: theme.spacing(1),
+    width: '100%'
   },
   detailsHeading: {
   //  paddingBottom: theme.spacing(1),

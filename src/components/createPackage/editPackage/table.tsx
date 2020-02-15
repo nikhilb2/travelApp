@@ -2,6 +2,7 @@ import React from 'react';
 import { withStyles } from "@material-ui/core/styles"
 import Box from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
+import TextField from '@material-ui/core/TextField'
 import theme from '../../../theme'
 
 const Table = (props: any) => {
@@ -13,13 +14,21 @@ const Table = (props: any) => {
       <div className={classes.tableHolder}>
         <Typography className={classes.heading} style={{color: 'green'}}>Inclusions</Typography>
         <div className={classes.content}>
-          {data.inclusions.split('#').map((row: string) => <div key={row}><Typography className={classes.contentText}>{row}</Typography></div>)}
+          {data.inclusions.split('#').map((row: string) => <div key={row}><TextField           InputProps={{
+            classes: {
+              input: classes.resize,
+            },
+          }} className={classes.contentText} value={row}/></div>)}
         </div>
       </div>
       <div className={classes.tableHolder}>
         <Typography className={classes.heading} style={{color: 'red'}}>Exclusions</Typography>
         <div className={classes.content}>
-          {data.exclusions.split('#').map((row: string) => <div key={row}><Typography className={classes.contentText}>{row}</Typography></div>)}
+          {data.exclusions.split('#').map((row: string) => <div key={row}><TextField           InputProps={{
+            classes: {
+              input: classes.resize,
+            },
+          }} className={classes.contentText} value={row}/></div>)}
         </div>
       </div>
     </Box>
@@ -57,9 +66,11 @@ export default withStyles({
   },
   contentText: {
     borderBottom: `1px solid ${theme.palette.secondary.dark}`,
-    paddingLeft: theme.spacing(1),
-    paddingRight: theme.spacing(1),
-    ...theme.typography.caption
+    ...theme.typography.caption,
+    width: '100%'
+  },
+  resize: {
+    ...theme.typography.caption,
   },
   tableHolder: {
     border: `1px solid ${theme.palette.secondary.dark}`,
