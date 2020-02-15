@@ -9,19 +9,19 @@ import theme from '../../../theme'
 
 
 const PackageDescription = (props: any) => {
-  const { classes, pack, inclusions, exclusions, setInclusions, setExclusions } = props
+  const { classes, pack, inclusions, exclusions, setInclusions, setExclusions, name, setName, smallDescription, setSmallDescription, price, setPrice } = props
   return(
     <Box>
       <TextField
         className={classes.title}
          id="standard-multiline-flexible"
          label="Name"
-         value={pack.name}
-      //   onChange={handleChange}
+         value={name}
+         onChange={(e) => setName(e.target.value)}
        />
-        <TextField label="Small description" className={classes.smallDescription} value={pack.smallDescription}/>
+        <TextField label="Small description" id="smallDescription" className={classes.smallDescription} value={smallDescription} onChange={(e: any) => setSmallDescription(e.target.value)}/>
       <Box className={classes.priceAndButtonContainer}>
-        <Box className={classes.priceTag}><TextField label="Price" value={pack.price}/></Box>
+        <Box className={classes.priceTag}><TextField label="Price" id="price" type="number" value={price} onChange={(e: any) => setPrice(e.target.value)}/></Box>
       </Box>
       <Table data={pack} inclusions={inclusions} exclusions={exclusions} setExclusions={setExclusions} setInclusions={setInclusions} />
     </Box>

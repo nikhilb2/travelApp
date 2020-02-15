@@ -12,6 +12,9 @@ const PackageContainer = (props: any) => {
   const [ description, setDescription ] = useState(pack.description)
   const [ inclusions , setInclusions ] = useState(pack.inclusions.split('#'))
   const [ exclusions, setExclusions ] = useState(pack.exclusions.split('#'))
+  const [ name, setName ] = useState(pack.name)
+  const [ smallDescription, setSmallDescription ] = useState(pack.smallDescription)
+  const [ price, setPrice ] = useState(pack.price)
   return(
     <Box className={classes.root}>
       <article>
@@ -21,7 +24,7 @@ const PackageContainer = (props: any) => {
               <ImageViewer images={pack.images} />
             </Box>
             <Box className={classes.rightSide}>
-              <PackageDescription pack={pack} inclusions={inclusions} exclusions={exclusions} setExclusions={setExclusions} setInclusions={setInclusions}/>
+              <PackageDescription pack={pack} inclusions={inclusions} exclusions={exclusions} setExclusions={setExclusions} setInclusions={setInclusions} name={name} setName={setName} smallDescription={smallDescription} setSmallDescription={setSmallDescription} price={price} setPrice={setPrice}/>
             </Box>
           </Box>
         </section>
