@@ -18,7 +18,7 @@ const HolidayCardsHolder = (props: any) => {
         </Typography>
       </Box>
       <div className={classes.cards}>
-        {data && data.map((card: number) => <div key={card}><HolidayCard /></div>)}
+        {data && data.map((card: any) => <div key={card.id}><HolidayCard data={card}/></div>)}
       </div>
     </div>
   )

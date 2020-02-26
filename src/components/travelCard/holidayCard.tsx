@@ -23,7 +23,10 @@ const useStyles = makeStyles({
   }
 });
 
-export default function MediaCard() {
+export default function MediaCard(props: any) {
+  const { data } = props
+  console.log(data);
+
   const classes = useStyles();
 
   return (
@@ -31,10 +34,10 @@ export default function MediaCard() {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="static/goa.jpg"
-          title="Contemplative Reptile"
+          image={`https://zefiri.com/travel-api/${data.image}`}
+          title={`${data.place}, ${data.country}`}
           children={<Typography className={classes.label}>
-                  Goa
+                  {data.place}
                 </Typography>}
         />
       </CardActionArea>

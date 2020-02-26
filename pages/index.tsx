@@ -15,7 +15,9 @@ const Index = (props: any) => {
 Index.getInitialProps = async () => {
   const packagesFetch = await fetch(decoratedUrl('get_packages.php'))
   const packages = await packagesFetch.json()
-  return {packages: packages.data}
+  const destinationsFetch = await fetch(decoratedUrl('get_places.php'))
+  const destinations = await destinationsFetch.json()
+  return {packages: packages.data, destinations: destinations.data}
 }
 
 
