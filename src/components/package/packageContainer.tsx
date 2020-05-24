@@ -5,11 +5,14 @@ import Typography from '@material-ui/core/Typography'
 import ImageViewer from './imageViewer'
 import PackageDescription from './packageDescription'
 import theme from '../../theme'
-
+import { capitalize } from '../../utility'
 const PackageContainer = (props: any) => {
   const { classes, pack } = props
   console.log(pack);
-
+  let description = []
+  if (pack) {
+    description = pack.description.split('#')
+  }
   return(
     <Box className={classes.root}>
       <article>
@@ -28,9 +31,20 @@ const PackageContainer = (props: any) => {
             <Typography className={classes.detailsHeading} variant='h6'>
               Details
             </Typography>
-            <Typography className={classes.descriptionText}>
-              {pack.description}
-            </Typography>
+            {description && description.map((item: any) =>{
+              const des  = item.split('%$')
+              return(
+                <Box className={classes.descriptionHolder} boxShadow={1}>
+                <Typography style={{fontWeight: 'bold'}} className={classes.descriptionTextTitle}>
+                  {capitalize(des[0] ? des[0] : ' ')}
+                </Typography>
+                  <Typography className={classes.descriptionText}>
+                  {des[1]}
+                  </Typography>
+                  </Box>
+              )
+            }
+            )}
           </Box>
         </section>
       </article>
@@ -78,10 +92,24 @@ export default withStyles({
     marginLeft: 'auto'
   },
   descriptionText: {
-    padding: theme.spacing(1)
+//    padding: theme.spacing(1)
+    marginTop: theme.spacing(1)
+  },
+  descriptionTextTitle: {
+//    padding: theme.spacing(1)
+  backgroundColor: theme.palette.primary.dark,
+  color: theme.palette.primary.light,
+  textAlign: 'center',
+  borderRadius: 9
   },
   detailsHeading: {
   //  paddingBottom: theme.spacing(1),
-    paddingLeft: theme.spacing(1)
+    paddingLeft: theme.spacing(1),
+  },
+  descriptionHolder: {
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    padding: theme.spacing(1),
+    marginBottom: theme.spacing(1)
   }
 })(PackageContainer)
