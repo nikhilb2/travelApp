@@ -16,13 +16,15 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "format": "prettier --single-quote --no-semi --write \"{src/**/*.js,pages/**/*.js,hocs/**/*.js}\""
   },
   "devDependencies": {
     "@types/next": "latest",
     "@types/node": "^13.1.5",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "prettier": "2.0.5",
     "typescript": "latest"
   }
 }

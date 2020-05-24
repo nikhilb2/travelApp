@@ -14,15 +14,15 @@ export function decoratedImageUrl(params) {
 
 //concat fetch options with user-key and other headers
 export function decoratedOptions(params, auth) {
-  console.log(params);
+  console.log(params)
   const newOptions = Object.assign(params, {
     headers: {
       'Content-Type': 'application/json',
-    }
+    },
   })
   if (auth) {
     const accessToken = getAccessToken()
-    newOptions.headers.authorization = "Bearer " + accessToken
+    newOptions.headers.authorization = 'Bearer ' + accessToken
   }
 
   //console.log(accessToken)
@@ -31,7 +31,7 @@ export function decoratedOptions(params, auth) {
 
 function parseJSON(response) {
   parseJSONResponse = response
-  return response.json().catch(ex => {
+  return response.json().catch((ex) => {
     const error = new Error(ex)
     error.response = response
     error.jsonFailed = true
@@ -53,14 +53,14 @@ function checkStatus(response) {
 export const fetchRequest = async (param, options, auth) => {
   const urlTofetch = url + param
   const newOptions = decoratedOptions(options, auth)
-  console.log(newOptions);
+  console.log(newOptions)
   try {
     const response = checkStatus(await fetch(urlTofetch, newOptions))
     const result = await parseJSON(response)
 
     return result
   } catch (error) {
-    console.log(error);
+    console.log(error)
     const parseRes = await error.response.json()
     const parsedError = Object.assign(error, parseRes)
     return parsedError
@@ -78,33 +78,32 @@ export const fetchRequestWithoutResponse = async (param, options) => {
   }
 }
 
-
 export function requestUploadImage(photos) {
   const formData = new FormData()
   photos.forEach((uri, i) => {
     const fileName = uri.name
-      formData.append(`fileToUpload[${i}]`, uri)
+    formData.append(`fileToUpload[${i}]`, uri)
   })
-   const options = {
+  const options = {
     method: 'POST',
     body: formData,
     header: {
       //'Content-Type': 'application/json'
       Accept: 'application/json',
-      'Content-Type': 'multipart/form-data'
-    }
+      'Content-Type': 'multipart/form-data',
+    },
   }
   return fetch('https://zefiri.com/travel-api/upload.php', options) // eslint-disable-line
     .then(checkStatus)
     .then(parseJSON)
-    .then(data => ({ data }))
-    .catch(err => ({ err }))
+    .then((data) => ({ data }))
+    .catch((err) => ({ err }))
 }
 
 export function returnFormData(photos) {
   const formData = new FormData()
-  console.log(photos);
+  console.log(photos)
 
-    console.log(formData.values());
+  console.log(formData.values())
   return formData
 }

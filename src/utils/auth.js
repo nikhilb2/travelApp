@@ -1,17 +1,17 @@
 import Cookies from 'js-cookie'
 
 //save accessToken to cookies
-export const saveAuth = accessToken => {
+export const saveAuth = (accessToken) => {
   Cookies.set('accessToken', accessToken, { expires: 365 })
 }
 
 //save user details to cookies
-export const saveUserDetails = details => {
+export const saveUserDetails = (details) => {
   Cookies.set('user', JSON.stringify(details), { expires: 365 })
 }
 
 //save cartid to cookies
-export const saveCartId = cartId => {
+export const saveCartId = (cartId) => {
   Cookies.set('cartId', JSON.stringify(cartId))
 }
 
@@ -33,12 +33,12 @@ export const getCartId = () => Cookies.get('cartId')
 export const removeCartId = () => Cookies.remove('cartId')
 
 //get user details if server request
-export const getServerUser = user => {
-  console.log('user server');
-  console.log(user);
+export const getServerUser = (user) => {
+  console.log('user server')
+  console.log(user)
   return {
     user: user && user.user ? user.user : null,
-    accessToken: user ? user.accessToken : null
+    accessToken: user ? user.accessToken : null,
   }
 }
 
