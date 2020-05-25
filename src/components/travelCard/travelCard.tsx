@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import DeleteIcon from '@material-ui/icons/Delete';
 import Link from 'next/link'
-
+import Dialog from '../common/dialog'
 import theme from '../../theme'
 
 const useStyles = makeStyles({
   card: {
-    width: 150,
+    width: 300,
     margin: theme.spacing(2)
   },
   media: {
-    height: 120,
+    height: 150,
   },
   heading: {
     lineHeight: 1.2
@@ -40,9 +41,9 @@ const useStyles = makeStyles({
 
 export default function MediaCard(props: any) {
   const classes = useStyles();
-  const { data, edit } = props
+  const { data, edit, deletePacakage } = props
   console.log(data);
-
+  const [ deletePressed, setDeletePressed ] = useState(false)
   return (
     <Card className={classes.card}>
       <CardActionArea>
@@ -65,6 +66,9 @@ export default function MediaCard(props: any) {
           </a>
         </Link>
       </CardActionArea>
+      {edit &&
+      <DeleteIcon onClick={() => setDeletePressed(true)} style={{color: 'red'}}/>}
+      <Dialog open={deletePressed} title={`Delete package`} detail={`Click confirm to delete package ${data.name}`} onConfirm={deletePacakage} onCancel={() => setDeletePressed(false)}/>
     </Card>
   );
 }

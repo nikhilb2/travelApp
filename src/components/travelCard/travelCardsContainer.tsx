@@ -4,10 +4,10 @@ import TravelCard from './travelCard'
 
 
 const TravelCardsConatainer = (props: any) => {
-  const { classes, data, edit } = props
+  const { classes, data, edit, deletePacakage } = props
   return(
     <div className={classes.root}>
-      {data && data.map((item: any) => <div key={item.id}><TravelCard edit={edit} data={item}/></div>)}
+      {data && data.map((item: any) => <div key={item.id}><TravelCard edit={edit} data={item} deletePacakage={() => deletePacakage(item.id)}/></div>)}
     </div>
   )
 }

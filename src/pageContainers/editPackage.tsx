@@ -11,11 +11,15 @@ import Box from '@material-ui/core/Box'
 import theme from '../theme'
 
 
+
 const EditPackagePage = (props: any) => {
   const { user, classes, pack } = props
-  console.log(props)
   const [selectedMenu, selectMenu] = useState('null')
-  console.log(selectedMenu)
+
+  console.log(selectedMenu);
+
+
+
   return(
     <React.Fragment>
       <NavLogin user={user}/>
@@ -25,7 +29,7 @@ const EditPackagePage = (props: any) => {
         : <MiniNav />
       }
         {user && user.user && user.user.id === '69'
-          ? <EditPackage pack={pack}/>
+          ? <EditPackage pack={pack} showDelete={true}/>
           : <Box className={classes.content} boxShadow={4}>
               <Typography>
                 Error 404 Page not found
