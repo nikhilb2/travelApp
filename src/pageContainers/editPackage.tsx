@@ -16,7 +16,6 @@ const EditPackagePage = (props: any) => {
   const { user, classes, pack } = props
   const [selectedMenu, selectMenu] = useState('null')
 
-  console.log(selectedMenu);
 
 
 
@@ -25,7 +24,7 @@ const EditPackagePage = (props: any) => {
       <NavLogin user={user}/>
       <NavBar />
       {user && user.user && user.user.id === '69'
-        ? <AdminMiniNav selectMenu={selectMenu}/>
+        ? <AdminMiniNav selectMenu={selectMenu} selectedMenu={selectedMenu}/>
         : <MiniNav />
       }
         {user && user.user && user.user.id === '69'

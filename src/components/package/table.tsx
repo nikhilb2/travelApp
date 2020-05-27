@@ -13,13 +13,13 @@ const Table = (props: any) => {
       <div className={classes.tableHolder}>
         <Typography className={classes.heading} style={{color: 'green'}}>Inclusions</Typography>
         <div className={classes.content}>
-          {data.inclusions.split('#').map((row: string) => <div key={row}><Typography className={classes.contentText}>{row}</Typography></div>)}
+          {data.inclusions.split('#*').map((row: string) => <div key={row}><Typography className={classes.contentText}>{row}</Typography></div>)}
         </div>
       </div>
       <div className={classes.tableHolder}>
         <Typography className={classes.heading} style={{color: 'red'}}>Exclusions</Typography>
         <div className={classes.content}>
-          {data.exclusions.split('#').map((row: string) => <div key={row}><Typography className={classes.contentText}>{row}</Typography></div>)}
+          {data.exclusions.split('#*').map((row: string) => <div key={row}><Typography className={classes.contentText}>{row}</Typography></div>)}
         </div>
       </div>
     </Box>

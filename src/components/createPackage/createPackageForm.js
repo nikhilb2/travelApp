@@ -20,7 +20,7 @@ const Form = (props) => {
   const incNExc = (string, type) => {
     if (type === "inclusions") {
       if (details.inclusions.length > 1) {
-        return details.inclusions + "#" + string;
+        return details.inclusions + "#*" + string;
       } else {
         return string;
       }
@@ -28,14 +28,14 @@ const Form = (props) => {
 
     if (type === "exclusions") {
       if (details.exclusions.length > 1) {
-        return details.exclusions + "#" + string;
+        return details.exclusions + "#*" + string;
       } else {
         return string;
       }
     }
     if (type === "description") {
       if (details.description.length > 1) {
-        return details.description + "#" + string;
+        return details.description + "#*" + string;
       } else {
         return string;
       }
@@ -43,8 +43,8 @@ const Form = (props) => {
   };
 
   const splitIncExc = (string) => {
-    if (string.includes("#")) {
-      return string.split("#");
+    if (string.includes("#*")) {
+      return string.split("#*");
     } else {
       return [string];
     }

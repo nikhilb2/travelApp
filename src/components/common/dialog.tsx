@@ -39,9 +39,10 @@ export default function DraggableDialog(props: any) {
           <Button autoFocus onClick={onConfirm} color="primary">
             Ok
           </Button>
-          <Button onClick={onCancel} color="primary">
-            Cancel
-          </Button>
+          {onCancel ?           <Button onClick={onCancel} color="primary">
+                      Cancel
+                    </Button> : null}
+
         </DialogActions>
       </Dialog>
     </div>

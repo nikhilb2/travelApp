@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import NavLogin from '../components/navigation/navLogin'
 import NavBar from '../components/navigation/navBar'
 import MiniNav from '../components/navigation/miniNavBar'
@@ -9,14 +9,13 @@ import { withStyles } from '@material-ui/styles'
 
 const PackagePage = (props: any) => {
   const { user, classes, pack } = props
-  console.log(props)
   return(
     <div>
       <NavLogin user={user}/>
       <NavBar />
       <MiniNav />
       <div className={classes.packageContainer}>
-        <PackageContainer pack={pack}/>
+        <PackageContainer pack={pack} />
       </div>
       <Footer />
     </div>

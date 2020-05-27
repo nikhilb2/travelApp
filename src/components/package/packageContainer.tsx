@@ -11,7 +11,7 @@ const PackageContainer = (props: any) => {
   console.log(pack);
   let description = []
   if (pack) {
-    description = pack.description.split('#')
+    description = pack.description.split('#*')
   }
   return(
     <Box className={classes.root}>
