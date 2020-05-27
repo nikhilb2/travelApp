@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import NavLogin from '../components/navigation/navLogin'
 import NavBar from '../components/navigation/navBar'
 import MiniNav from '../components/navigation/miniNavBar'
