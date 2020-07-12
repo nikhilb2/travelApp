@@ -9,9 +9,10 @@ import Footer from '../components/common/footer'
 import Button from '@material-ui/core/Button'
 import { withStyles } from '@material-ui/styles'
 import theme from '../theme'
+import Link from 'next/link'
+
 const HomePage = (props: any) => {
   const { classes, user, packages, destinations } = props
-  console.log(props)
   return (
     <div>
       <NavLogin user={user} />
@@ -21,9 +22,13 @@ const HomePage = (props: any) => {
       <div className={classes.travelCard}>
         <TravelCards data={packages} />
         <div className={classes.seeAll}>
+          <Link href='/packages'>
+          <a className={classes.anchor}>
           <Button variant="contained" color="primary">
             See all
           </Button>
+          </a>
+          </Link>
         </div>
       </div>
       <HolidayCards data={destinations} />
@@ -45,4 +50,7 @@ export default withStyles({
     flexDirection: 'row',
     justifyContent: 'center',
   },
+  anchor: {
+    textDecoration: 'none'
+  }
 })(HomePage)
