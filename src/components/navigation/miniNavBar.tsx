@@ -24,7 +24,7 @@ const MiniNav = (props: any) => {
           <Typography className={classes.item}>Destinations</Typography>
         </a>
       </Link>
-      <Link href={{ pathname: '/' }}>
+      <Link href={{ pathname: '/contactus' }}>
         <a className={classes.link}>
           <Typography className={classes.item}>Contact us</Typography>
         </a>
