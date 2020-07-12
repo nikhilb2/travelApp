@@ -1,19 +1,17 @@
-import React from 'react';
-import AddPackage from '../../../src/pageContainers/addPackage';
+import React from 'react'
+import AddPackage from '../../../src/pageContainers/addPackage'
 import { userDetails } from '../../../hocs/auth-hoc'
 
-
 const Edit = (props: any) => {
-  return(
+  return (
     <div>
-      <AddPackage {...props}/>
+      <AddPackage {...props} />
     </div>
   )
 }
 
 Edit.getInitialProps = async () => {
-  return {test: 'test'}
+  return { test: 'test' }
 }
-
 
 export default userDetails(Edit)

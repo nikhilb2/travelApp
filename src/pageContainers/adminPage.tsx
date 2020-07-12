@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import NavLogin from '../components/navigation/navLogin'
 import NavBar from '../components/navigation/navBar'
 import MiniNav from '../components/navigation/miniNavBar'
@@ -13,15 +13,13 @@ import theme from '../theme'
 
 const renderSelection = (menu: string) => {
   console.log(menu)
-  switch(menu) {
-    case "packages":
+  switch (menu) {
+    case 'packages':
       return <CreatePackage />
-    case "editpackage":
+    case 'editpackage':
       return <EditPackage />
     default:
-      return (<Typography>
-        Welcome
-      </Typography>)
+      return <Typography>Welcome</Typography>
   }
 }
 
@@ -30,21 +28,21 @@ const PackagePage = (props: any) => {
   console.log(props)
   const [selectedMenu, selectMenu] = useState('null')
   console.log(selectedMenu)
-  return(
+  return (
     <React.Fragment>
-      <NavLogin user={user}/>
+      <NavLogin user={user} />
       <NavBar />
-      {user && user.user && user.user.id === '69'
-        ? <AdminMiniNav selectMenu={selectMenu}/>
-        : <MiniNav />
-      }
+      {user && user.user && user.user.id === '69' ? (
+        <AdminMiniNav selectMenu={selectMenu} />
+      ) : (
+        <MiniNav />
+      )}
       <Box className={classes.content} boxShadow={4}>
-        {user && user.user && user.user.id === '69'
-          ? renderSelection(selectedMenu)
-          : <Typography>
-            Error 404 Page not found
-          </Typography>
-        }
+        {user && user.user && user.user.id === '69' ? (
+          renderSelection(selectedMenu)
+        ) : (
+          <Typography>Error 404 Page not found</Typography>
+        )}
       </Box>
       <Footer />
     </React.Fragment>
@@ -55,7 +53,7 @@ export default withStyles({
   packageContainer: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   content: {
     width: '80%',
@@ -64,5 +62,5 @@ export default withStyles({
     marginTop: theme.spacing(3),
     marginBottom: theme.spacing(3),
     padding: theme.spacing(1),
-  }
+  },
 })(PackagePage)

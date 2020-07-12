@@ -1,8 +1,8 @@
-import React from "react"
-import EditPackage from "../../../../src/pageContainers/editPackage"
-import { userDetails } from "../../../../hocs/auth-hoc"
-import fetch from "isomorphic-unfetch"
-import { decoratedUrl } from "../../../../src/utils/request"
+import React from 'react'
+import EditPackage from '../../../../src/pageContainers/editPackage'
+import { userDetails } from '../../../../hocs/auth-hoc'
+import fetch from 'isomorphic-unfetch'
+import { decoratedUrl } from '../../../../src/utils/request'
 
 const Edit = (props: any) => {
   return (
@@ -18,7 +18,7 @@ Edit.getInitialProps = async ({ req, query }: any) => {
   const packageFetch = query.id
     ? await fetch(
         decoratedUrl(
-          query.id ? `get_package_by_id.php?packageid=${query.id}` : "products"
+          query.id ? `get_package_by_id.php?packageid=${query.id}` : 'products'
         )
       )
     : null

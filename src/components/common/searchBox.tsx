@@ -1,11 +1,11 @@
-import React from "react"
-import { withStyles } from "@material-ui/core/styles"
-import { ThemeProvider } from "@material-ui/styles"
-import TextField from "@material-ui/core/TextField"
-import InputAdornment from "@material-ui/core/InputAdornment"
-import Search from "@material-ui/icons/Search"
+import React from 'react'
+import { withStyles } from '@material-ui/core/styles'
+import { ThemeProvider } from '@material-ui/styles'
+import TextField from '@material-ui/core/TextField'
+import InputAdornment from '@material-ui/core/InputAdornment'
+import Search from '@material-ui/icons/Search'
 
-import theme from "../../theme"
+import theme from '../../theme'
 
 const SearchBox = (props: any) => {
   const { classes } = props
@@ -22,7 +22,7 @@ const SearchBox = (props: any) => {
               <InputAdornment position="start">
                 <Search color="primary" />
               </InputAdornment>
-            )
+            ),
           }}
         />
       </ThemeProvider>
@@ -32,19 +32,19 @@ const SearchBox = (props: any) => {
 
 export default withStyles({
   root: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "center",
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
     backgroundColor: 'rgba(0,0,0, 0.7)',
-    borderRadius: 40
+    borderRadius: 40,
   },
   margin: {
     [`& fieldset`]: {
-      borderRadius: 40
+      borderRadius: 40,
     },
     [`& input`]: {
-      padding: ".5rem",
+      padding: '.5rem',
       color: theme.palette.primary.light,
-    }
-  }
+    },
+  },
 })(SearchBox)

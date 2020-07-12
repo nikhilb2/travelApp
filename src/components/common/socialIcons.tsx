@@ -15,11 +15,11 @@ const useStyles = makeStyles(() => ({
     justifyContent: 'center',
     width: '15rem',
     marginRight: 'auto',
-    marginLeft: 'auto'
+    marginLeft: 'auto',
   },
   margin: {
-    margin: '.5rem'
-  }
+    margin: '.5rem',
+  },
 }))
 
 const SocialIcons = () => {

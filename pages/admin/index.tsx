@@ -1,19 +1,17 @@
-import React from 'react';
-import AdminPage from '../../src/pageContainers/adminPage';
+import React from 'react'
+import AdminPage from '../../src/pageContainers/adminPage'
 import { userDetails } from '../../hocs/auth-hoc'
 
-
 const Admin = (props: any) => {
-  return(
+  return (
     <div>
-      <AdminPage {...props}/>
+      <AdminPage {...props} />
     </div>
   )
 }
 
 Admin.getInitialProps = async () => {
-  return {test: 'test'}
+  return { test: 'test' }
 }
-
 
 export default userDetails(Admin)

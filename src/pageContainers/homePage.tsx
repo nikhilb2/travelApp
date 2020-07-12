@@ -6,19 +6,25 @@ import Banner from '../components/common/banner'
 import TravelCards from '../components/travelCard/travelCardsContainer'
 import HolidayCards from '../components/travelCard/holidayCardsContainer'
 import Footer from '../components/common/footer'
+import Button from '@material-ui/core/Button'
 import { withStyles } from '@material-ui/styles'
 import theme from '../theme'
 const HomePage = (props: any) => {
   const { classes, user, packages, destinations } = props
   console.log(props)
-  return(
+  return (
     <div>
-      <NavLogin user={user}/>
+      <NavLogin user={user} />
       <NavBar />
       <MiniNav />
       <Banner />
       <div className={classes.travelCard}>
         <TravelCards data={packages} />
+        <div className={classes.seeAll}>
+          <Button variant="contained" color="primary">
+            See all
+          </Button>
+        </div>
       </div>
       <HolidayCards data={destinations} />
       <Footer />
@@ -31,7 +37,12 @@ export default withStyles({
     marginTop: -100,
     padding: '1rem',
     [theme.breakpoints.down('sm')]: {
-      marginTop: 0
-    }
-  }
+      marginTop: 0,
+    },
+  },
+  seeAll: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
 })(HomePage)

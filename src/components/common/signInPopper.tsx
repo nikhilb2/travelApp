@@ -38,7 +38,7 @@ const SignInPop = (props: any) => {
           color: theme.palette.primary.dark,
           textTransform: 'none',
           padding: 1,
-          margin: 0
+          margin: 0,
         }}
         onClick={handleClick}
       >
@@ -51,11 +51,11 @@ const SignInPop = (props: any) => {
         onClose={handleClose}
         anchorOrigin={{
           vertical: 'bottom',
-          horizontal: 'center'
+          horizontal: 'center',
         }}
         transformOrigin={{
           vertical: 'top',
-          horizontal: 'center'
+          horizontal: 'center',
         }}
       >
         <div>

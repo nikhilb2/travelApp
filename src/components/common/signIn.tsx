@@ -6,26 +6,24 @@ import Box from '@material-ui/core/Box'
 //import theme from '../theme'
 import { withStyles } from '@material-ui/styles'
 
-
-
 type Props = {
   // using `interface` is also ok
   classes: any
   style?: any
   bgcolor?: string
   color?: string
-  signin: any,
+  signin: any
   error?: string
 }
 type State = {
   email?: any
   password?: any
-};
+}
 
 class SignIn extends Component<Props, State> {
   state = {
     email: null,
-    password: null
+    password: null,
   }
   render() {
     const { style, bgcolor, classes, signin, error } = this.props
@@ -51,7 +49,7 @@ class SignIn extends Component<Props, State> {
             autoComplete="email"
             margin="normal"
             variant="outlined"
-            onChange={e => this.setState({ email: e.target.value })}
+            onChange={(e) => this.setState({ email: e.target.value })}
           />
         </div>
         <div>
@@ -63,13 +61,14 @@ class SignIn extends Component<Props, State> {
             autoComplete="current-password"
             margin="normal"
             variant="outlined"
-            onChange={e => this.setState({ password: e.target.value })}
+            onChange={(e) => this.setState({ password: e.target.value })}
           />
         </div>
-        <div id='signInButton' style={{ display: 'flex', justifyContent: 'center' }}>
-          <Button onClick={() => signin(this.state)}>
-            Sign In
-          </Button>
+        <div
+          id="signInButton"
+          style={{ display: 'flex', justifyContent: 'center' }}
+        >
+          <Button onClick={() => signin(this.state)}>Sign In</Button>
         </div>
         {error ? error : null}
       </Box>
@@ -79,6 +78,6 @@ class SignIn extends Component<Props, State> {
 
 export default withStyles({
   logo: {
-    width: '100px'
-  }
+    width: '100px',
+  },
 })(SignIn)

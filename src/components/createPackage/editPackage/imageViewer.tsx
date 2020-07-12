@@ -7,25 +7,45 @@ import theme from '../../../theme'
 
 const ImageView = (props: any) => {
   const { classes, images } = props
-  const [ selectedImage, changeImage ] = useState(images && images[0] && images[0].image ? images[0].image : '/static/phi.jpg')
-  return(
+  const [selectedImage, changeImage] = useState(
+    images && images[0] && images[0].image ? images[0].image : '/static/phi.jpg'
+  )
+  return (
     <React.Fragment>
       <div className={classes.root}>
-      <meta property="og:image" content={selectedImage} />
+        <meta property="og:image" content={selectedImage} />
         <div className={classes.selectedImageHolder}>
           <figure>
-            <img src={'https://zefiri.com/travel-api/'+selectedImage} alt ='selectedImage' className={classes.selectedImage}/>
+            <img
+              src={'https://zefiri.com/travel-api/' + selectedImage}
+              alt="selectedImage"
+              className={classes.selectedImage}
+            />
           </figure>
         </div>
-        {images && images.length > 0 &&
-        <div className={classes.imageSelector}>
-          {images && images.map((image: any, i: number) => <div onClick={() => {
-            changeImage(image.image)
-          }} key={i}>
-              <img className={ image.image === selectedImage ? classes.selectedImg : classes.img} src={"https://zefiri.com/travel-api/"+image.image} alt={'img' + i} />
-            </div>)}
-        </div>
-      }
+        {images && images.length > 0 && (
+          <div className={classes.imageSelector}>
+            {images &&
+              images.map((image: any, i: number) => (
+                <div
+                  onClick={() => {
+                    changeImage(image.image)
+                  }}
+                  key={i}
+                >
+                  <img
+                    className={
+                      image.image === selectedImage
+                        ? classes.selectedImg
+                        : classes.img
+                    }
+                    src={'https://zefiri.com/travel-api/' + image.image}
+                    alt={'img' + i}
+                  />
+                </div>
+              ))}
+          </div>
+        )}
       </div>
     </React.Fragment>
   )
@@ -41,7 +61,7 @@ export default withStyles({
     [theme.breakpoints.down('sm')]: {
       height: 50,
     },
-  //  border: `1px solid ${theme.palette.primary.dark}`
+    //  border: `1px solid ${theme.palette.primary.dark}`
   },
   selectedImg: {
     height: 70,
@@ -49,21 +69,21 @@ export default withStyles({
       height: 50,
     },
     margin: theme.spacing(1),
-    border: `2px solid ${theme.palette.primary.dark}`
+    border: `2px solid ${theme.palette.primary.dark}`,
   },
   imageSelector: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'center',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
   },
   selectedImage: {
-    height: 200
+    height: 200,
   },
   selectedImageHolder: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center'  ,
-    padding: theme.spacing(1)
+    justifyContent: 'center',
+    padding: theme.spacing(1),
   },
 })(ImageView)

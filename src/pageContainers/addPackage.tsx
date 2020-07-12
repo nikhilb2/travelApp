@@ -10,25 +10,24 @@ import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import theme from '../theme'
 
-
 const AddPackage = (props: any) => {
   const { user, classes } = props
   console.log(props)
-  return(
+  return (
     <React.Fragment>
-      <NavLogin user={user}/>
+      <NavLogin user={user} />
       <NavBar />
-      {user && user.user && user.user.id === '69'
-        ? <AdminMiniNav />
-        : <MiniNav />
-      }
+      {user && user.user && user.user.id === '69' ? (
+        <AdminMiniNav />
+      ) : (
+        <MiniNav />
+      )}
       <Box className={classes.content} boxShadow={4}>
-        {user && user.user && user.user.id === '69'
-          ? <CreatePackage />
-          : <Typography>
-            Error 404 Page not found
-          </Typography>
-        }
+        {user && user.user && user.user.id === '69' ? (
+          <CreatePackage />
+        ) : (
+          <Typography>Error 404 Page not found</Typography>
+        )}
       </Box>
       <Footer />
     </React.Fragment>
@@ -39,7 +38,7 @@ export default withStyles({
   packageContainer: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   content: {
     width: '80%',
@@ -48,5 +47,5 @@ export default withStyles({
     marginTop: theme.spacing(3),
     marginBottom: theme.spacing(3),
     padding: theme.spacing(1),
-  }
+  },
 })(AddPackage)

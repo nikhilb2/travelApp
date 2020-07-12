@@ -20,7 +20,7 @@ export const userDetails = (Page: any) => {
 
     initProps.user = user
     return {
-      ...initProps
+      ...initProps,
     }
   }
 

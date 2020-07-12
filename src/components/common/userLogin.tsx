@@ -11,10 +11,7 @@ const UserLogin = (props: any) => {
       {user ? (
         <div style={{ display: 'flex' }}>
           <Typography>Hi! {user.name}</Typography>
-          <Button
-            onClick={logOutUser}>
-            Logout
-          </Button>
+          <Button onClick={logOutUser}>Logout</Button>
         </div>
       ) : (
         <div style={{ display: 'flex' }}>

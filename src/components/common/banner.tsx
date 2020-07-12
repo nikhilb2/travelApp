@@ -1,21 +1,31 @@
 import React from 'react'
-import { withStyles } from "@material-ui/core/styles"
+import { withStyles } from '@material-ui/core/styles'
 import SearchBox from './searchBox'
-import Typography from '@material-ui/core/Typography';
+import Typography from '@material-ui/core/Typography'
 import theme from '../../theme'
 
 const Banner = (props: any) => {
   const { classes } = props
-  return(
+  return (
     <div className={classes.root}>
-      <div className={classes.image} style={{ backgroundImage: `url("/static/trip.jpg")` }}>
+      <div
+        className={classes.image}
+        style={{ backgroundImage: `url("/static/trip.jpg")` }}
+      >
         <div className={classes.searchBoxHolder}>
           <SearchBox />
         </div>
         <div>
           <div className={classes.bottomDescriptionContainer}>
             <Typography className={classes.descriptionText}>
-              Hey wanderer, planning to visit India? Well you are at the right place as we customize tours to India and international trips. Not that we are boasting, but all our itineraries are tailor-made so you have a lot to experiment. Choose from our handpicked tour packages or let our 100+ experts plan dreamlike Indian holidays for you. If you are traveling to India for the first time, take a look at our meticulously crafted 'India for First Timers' tour packages.
+              Hey wanderer, planning to visit India? Well you are at the right
+              place as we customize tours to India and international trips. Not
+              that we are boasting, but all our itineraries are tailor-made so
+              you have a lot to experiment. Choose from our handpicked tour
+              packages or let our 100+ experts plan dreamlike Indian holidays
+              for you. If you are traveling to India for the first time, take a
+              look at our meticulously crafted 'India for First Timers' tour
+              packages.
             </Typography>
           </div>
         </div>
@@ -25,9 +35,7 @@ const Banner = (props: any) => {
 }
 
 export default withStyles({
-  root: {
-
-  },
+  root: {},
   image: {
     //backgroundImage: `url("static/trip.jpg")`,
     width: '100%',
@@ -35,14 +43,14 @@ export default withStyles({
     backgroundSize: 'cover',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
     //backgroundColor: #cccccc,
   },
 
   bottomDescriptionContainer: {
     backgroundColor: 'rgba(0,0,0, 0.8)',
     width: '100%',
-    height: '200px'
+    height: '200px',
   },
   searchBoxHolder: {
     height: '200px',
@@ -50,8 +58,7 @@ export default withStyles({
     flexDirection: 'column',
     justifyContent: 'center',
     marginRight: 'auto',
-    marginLeft: 'auto'
-
+    marginLeft: 'auto',
   },
   descriptionText: {
     padding: '.5rem',
@@ -60,6 +67,6 @@ export default withStyles({
     color: theme.palette.primary.light,
     textAlign: 'center',
     marginTop: 'auto',
-    marginBottom: 'auto'
-  }
+    marginBottom: 'auto',
+  },
 })(Banner)

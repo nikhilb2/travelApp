@@ -8,7 +8,6 @@ import { withStyles } from '@material-ui/styles'
 //import { decoratedUrl, decoratedOptions } from '../utils/request'
 //import { saveAuth, saveUserDetails, getUserDetails } from '../utils/auth'
 
-
 type Props = {
   // using `interface` is also ok
   classes: any
@@ -22,19 +21,18 @@ type State = {
   password?: any
   name?: any
   result?: any
-};
-
+}
 
 class Register extends Component<Props, State> {
   state = {
     name: null,
     email: null,
-    password: null
+    password: null,
   }
 
   render() {
     const { style, bgcolor, classes, register, error } = this.props
-  //  const { result } = this.state
+    //  const { result } = this.state
     //console.log(this.props)
     return (
       <Box
@@ -57,7 +55,7 @@ class Register extends Component<Props, State> {
             name="name"
             margin="normal"
             variant="outlined"
-            onChange={e => this.setState({ name: e.target.value })}
+            onChange={(e) => this.setState({ name: e.target.value })}
           />
         </div>
         <div>
@@ -69,7 +67,7 @@ class Register extends Component<Props, State> {
             name="email"
             margin="normal"
             variant="outlined"
-            onChange={e => this.setState({ email: e.target.value })}
+            onChange={(e) => this.setState({ email: e.target.value })}
           />
         </div>
         <div>
@@ -81,14 +79,14 @@ class Register extends Component<Props, State> {
             autoComplete="current-password"
             margin="normal"
             variant="outlined"
-            onChange={e => this.setState({ password: e.target.value })}
+            onChange={(e) => this.setState({ password: e.target.value })}
           />
         </div>
-        <div id="registerButton" style={{ display: 'flex', justifyContent: 'center' }}>
-          <Button
-            onClick={() => register(this.state)}>
-            Register
-          </Button>
+        <div
+          id="registerButton"
+          style={{ display: 'flex', justifyContent: 'center' }}
+        >
+          <Button onClick={() => register(this.state)}>Register</Button>
         </div>
         <div>{error}</div>
       </Box>
@@ -98,6 +96,6 @@ class Register extends Component<Props, State> {
 
 export default withStyles({
   logo: {
-    width: '100px'
-  }
+    width: '100px',
+  },
 })(Register)

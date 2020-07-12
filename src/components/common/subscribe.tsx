@@ -6,21 +6,21 @@ import Button from '@material-ui/core/Button'
 import InputAdornment from '@material-ui/core/InputAdornment'
 import theme from '../../theme'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   margin: {
     margin: theme.spacing(1),
     [`& fieldset`]: {
-      borderRadius: 40
+      borderRadius: 40,
     },
     [`& input`]: {
-      padding: '.5rem'
-    }
-  }
+      padding: '.5rem',
+    },
+  },
 }))
 
 const Subscribe = () => {
@@ -38,13 +38,11 @@ const Subscribe = () => {
               <InputAdornment position="start">
                 <img src="/static/email.svg" alt="email" />
               </InputAdornment>
-            )
+            ),
           }}
         />
         <div style={{ margin: theme.spacing(1) }}>
-          <Button>
-            Subscribe
-          </Button>
+          <Button>Subscribe</Button>
         </div>
       </ThemeProvider>
     </div>

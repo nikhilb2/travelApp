@@ -13,17 +13,29 @@ const CreatePackage = (props: any) => {
     newImages.push(...image)
     return newImages
   }
-  return(
+  return (
     <React.Fragment>
       <div className={classes.imageContainer}>
-        {selectedImages.map((image: any, i: number) =>
-          <div key={i + "image"}>
-            <img className={classes.previewImg} src={URL.createObjectURL(image)} alt='image' />
-          </div>)}
+        {selectedImages.map((image: any, i: number) => (
+          <div key={i + 'image'}>
+            <img
+              className={classes.previewImg}
+              src={URL.createObjectURL(image)}
+              alt="image"
+            />
+          </div>
+        ))}
       </div>
       <Box className={classes.fileSelectorHolder}>
-        <Box boxShadow={4} className={classes.uploadButton}><Typography>Add Photos</Typography></Box>
-        <input className={classes.fileSelector} onChange={(e: any) => selectImages(addToPhotos(e.target.files))} type='file' multiple />
+        <Box boxShadow={4} className={classes.uploadButton}>
+          <Typography>Add Photos</Typography>
+        </Box>
+        <input
+          className={classes.fileSelector}
+          onChange={(e: any) => selectImages(addToPhotos(e.target.files))}
+          type="file"
+          multiple
+        />
       </Box>
     </React.Fragment>
   )
@@ -31,17 +43,17 @@ const CreatePackage = (props: any) => {
 
 export default withStyles({
   root: {
-    width: '80%'
+    width: '80%',
   },
   fileSelectorHolder: {
-    position: 'relative'
+    position: 'relative',
   },
   fileSelector: {
     opacity: 0,
     position: 'absolute',
     top: 0,
     width: '100%',
-    height: '100%'
+    height: '100%',
   },
   uploadButton: {
     width: 'fit-content',
@@ -53,12 +65,12 @@ export default withStyles({
   },
   previewImg: {
     height: 100,
-    marginRight: theme.spacing(1)
+    marginRight: theme.spacing(1),
   },
   imageContainer: {
     width: '100%',
     display: 'flex',
     flexDirection: 'row',
-    flexWrap: 'wrap'
-  }
+    flexWrap: 'wrap',
+  },
 })(CreatePackage)

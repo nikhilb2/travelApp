@@ -21,7 +21,7 @@ import {
   saveAuth,
   saveUserDetails,
   //getUserDetails,
-  logout
+  logout,
 } from '../../utils/auth'
 import { fetchRequest } from '../../utils/request'
 //import ButtonComp from './button'
@@ -32,19 +32,18 @@ type Props = {
   user: any
   bgcolor?: string
   color?: string
-
 }
 type State = {
   newUser: any
   error: string | null
   checkOutWithoutUser: boolean
-};
+}
 
 class NavBarMen extends Component<Props, State> {
   state = {
     newUser: null,
     error: null,
-    checkOutWithoutUser: false
+    checkOutWithoutUser: false,
   }
 
   toggleCheckOutWithoutUser() {
@@ -57,7 +56,7 @@ class NavBarMen extends Component<Props, State> {
   async registerUser(data: any) {
     const result = await fetchRequest('create_user.php', {
       method: 'POST',
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     })
     console.log(result)
     if (!result.error) {
@@ -72,7 +71,7 @@ class NavBarMen extends Component<Props, State> {
   async signInUser(data: any) {
     const result = await fetchRequest('login.php', {
       method: 'POST',
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     })
     console.log(result)
     if (!result.error) {
@@ -93,9 +92,7 @@ class NavBarMen extends Component<Props, State> {
   }
 
   render() {
-    const {
-      classes, user, bgcolor, color
-    } = this.props
+    const { classes, user, bgcolor, color } = this.props
 
     const { error, newUser } = this.state
     return (
@@ -105,7 +102,7 @@ class NavBarMen extends Component<Props, State> {
           style={{
             backgroundColor: bgcolor ? bgcolor : theme.palette.secondary.main,
             color: color ? color : 'black',
-            height: '50px'
+            height: '50px',
           }}
           elevation={0}
         >
@@ -117,37 +114,41 @@ class NavBarMen extends Component<Props, State> {
               logOutUser={() => this.logOutUser()}
               user={newUser ? newUser : user && user.user ? user.user : null}
             />
-              <Typography
-                variant="subtitle1"
-                display="block"
-                gutterBottom
-                className={classes.title}
-              >
-                Daily Deals
-              </Typography>
-              <Typography
-                variant="subtitle1"
-                display="block"
-                gutterBottom
-                className={classes.title}
-              >
-                Sell
-              </Typography>
-              <Typography
-                variant="subtitle1"
-                display="block"
-                gutterBottom
-                className={classes.title}
-              >
-                Help & Contact
-              </Typography>
+            <Typography
+              variant="subtitle1"
+              display="block"
+              gutterBottom
+              className={classes.title}
+            >
+              Daily Deals
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              display="block"
+              gutterBottom
+              className={classes.title}
+            >
+              Sell
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              display="block"
+              gutterBottom
+              className={classes.title}
+            >
+              Help & Contact
+            </Typography>
 
-              <div style={{ display: 'flex' }}>
-                <img className={classes.currencyLogo} src="/static/india.svg" alt="gb" />
-                <Typography style={{ marginTop: '5px', margin: '0.5rem' }}>
-                  ₹ INR
-                </Typography>
-              </div>
+            <div style={{ display: 'flex' }}>
+              <img
+                className={classes.currencyLogo}
+                src="/static/india.svg"
+                alt="gb"
+              />
+              <Typography style={{ marginTop: '5px', margin: '0.5rem' }}>
+                ₹ INR
+              </Typography>
+            </div>
 
             {/*<ShoppingCartPopper
               cartItems={cartItems}
@@ -180,24 +181,24 @@ class NavBarMen extends Component<Props, State> {
 
 export default withStyles({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   menuButton: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
   title: {
     flexGrow: 1,
     textAlign: 'center',
     [theme.breakpoints.down('sm')]: {
-      display: 'none'
-    }
+      display: 'none',
+    },
   },
   navRightButtons: {
     display: 'flex',
     flexDirection: 'row',
-    marginRight: '1.1rem'
+    marginRight: '1.1rem',
   },
   currencyLogo: {
-    width: 30
-  }
+    width: 30,
+  },
 })(NavBarMen)

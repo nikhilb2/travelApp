@@ -4,9 +4,9 @@ import Box from '@material-ui/core/Box'
 
 const Loader = (props: any) => {
   const { classes } = props
-  return(
+  return (
     <Box className={classes.root}>
-      <img className={classes.image} src='/static/flight.gif' alt='loader' />
+      <img className={classes.image} src="/static/flight.gif" alt="loader" />
     </Box>
   )
 }
@@ -21,10 +21,10 @@ export default withStyles({
     height: '100vh',
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   image: {
     marginTop: 'auto',
-    marginBottom: 'auto'
-  }
+    marginBottom: 'auto',
+  },
 })(Loader)

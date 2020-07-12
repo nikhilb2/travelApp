@@ -8,11 +8,11 @@ import { withStyles } from '@material-ui/core/styles'
 
 const Footer = (props: any) => {
   const { classes } = props
-  return(
+  return (
     <Box className={classes.root}>
       <Subscribe />
       <div className={classes.socail}>
-        <SocialIcons/>
+        <SocialIcons />
       </div>
     </Box>
   )
@@ -20,10 +20,10 @@ const Footer = (props: any) => {
 
 export default withStyles({
   root: {
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: theme.palette.secondary.main,
   },
   socail: {
     marginRight: 'auto',
-    marginLeft: 'auto'
-  }
+    marginLeft: 'auto',
+  },
 })(Footer)

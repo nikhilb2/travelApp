@@ -18,7 +18,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "format": "prettier --single-quote --no-semi --write \"{src/**/*.js,pages/**/*.js,hocs/**/*.js}\""
+    "format": "prettier --single-quote --no-semi --write \"{src/**/*.tsx,pages/**/*.tsx,hocs/**/*.tsx}\""
   },
   "devDependencies": {
     "@types/next": "latest",

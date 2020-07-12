@@ -9,9 +9,9 @@ import { withStyles } from '@material-ui/styles'
 
 const PackagePage = (props: any) => {
   const { user, classes, pack } = props
-  return(
+  return (
     <div>
-      <NavLogin user={user}/>
+      <NavLogin user={user} />
       <NavBar />
       <MiniNav />
       <div className={classes.packageContainer}>
@@ -26,6 +26,6 @@ export default withStyles({
   packageContainer: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center'
-  }
+    justifyContent: 'center',
+  },
 })(PackagePage)
