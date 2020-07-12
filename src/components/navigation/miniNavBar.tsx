@@ -14,16 +14,21 @@ const MiniNav = (props: any) => {
           <HomeIcon />
         </a>
       </Link>
-      <Typography>Menu</Typography>
-      <Typography>Menu</Typography>
-      <Typography>Menu</Typography>
-      <Typography>Menu</Typography>
-      <Typography>Menu</Typography>
-      <Typography>Menu</Typography>
-      <Typography>Menu</Typography>
-      <Typography>Menu</Typography>
-      <Typography>Menu</Typography>
-      <Typography>Menu</Typography>
+      <Link href={{ pathname: '/packages' }}>
+        <a className={classes.link}>
+          <Typography className={classes.item}>Packages</Typography>
+        </a>
+      </Link>
+      <Link href={{ pathname: '/' }}>
+        <a className={classes.link}>
+          <Typography className={classes.item}>Destinations</Typography>
+        </a>
+      </Link>
+      <Link href={{ pathname: '/' }}>
+        <a className={classes.link}>
+          <Typography className={classes.item}>Contact us</Typography>
+        </a>
+      </Link>
     </div>
   )
 }
@@ -32,7 +37,6 @@ export default withStyles({
   container: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-around',
     backgroundColor: 'black',
     color: theme.palette.primary.light,
     [theme.breakpoints.down('sm')]: {
@@ -42,5 +46,10 @@ export default withStyles({
   link: {
     textDecoration: 'none',
     color: theme.palette.primary.light,
+    marginLeft: theme.spacing(2)
   },
+  item: {
+    marginLeft: theme.spacing(4)
+
+  }
 })(MiniNav)

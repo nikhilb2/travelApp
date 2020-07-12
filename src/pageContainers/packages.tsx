@@ -11,8 +11,6 @@ import Button from '@material-ui/core/Button'
 
 const HomePage = (props: any) => {
   const { classes, user, packages, hasMore, totalResults } = props
-  console.log(hasMore);
-
   const [ newPackages, setNewPackages ] = useState(Array())
   const [ skip, setSkip ] = useState(12)
 
