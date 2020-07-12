@@ -10,6 +10,8 @@ const PackageDescription = (props: any) => {
   const { classes, pack } = props
   return (
     <Box>
+      <meta property="og:title"              content={pack.name} />
+      <meta property="og:description"              content={pack.smallDescription} />
       <Typography variant="h4">{pack.name}</Typography>
       <Typography variant="caption">{pack.smallDescription}</Typography>
       <Box className={classes.priceAndButtonContainer}>

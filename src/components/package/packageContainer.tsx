@@ -15,6 +15,7 @@ const PackageContainer = (props: any) => {
   }
   return (
     <Box className={classes.root}>
+    <meta property="og:type"               content="article" />
       <article>
         <section>
           <Box boxShadow={4} className={classes.imageAndDescriptionContainer}>

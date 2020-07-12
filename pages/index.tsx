@@ -3,10 +3,17 @@ import HomePage from '../src/pageContainers/homePage'
 import { userDetails } from '../hocs/auth-hoc'
 import fetch from 'isomorphic-unfetch'
 import { decoratedUrl } from '../src/utils/request'
-
+import Head from 'next/head'
 const Index = (props: any) => {
   return (
     <div>
+    <Head>
+      <title>Book my chhutti Home page</title>
+      <meta
+        name="viewport"
+        content="minimum-scale=1, initial-scale=1, width=device-width"
+      />
+    </Head>
       <HomePage {...props} />
     </div>
   )
