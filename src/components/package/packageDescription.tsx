@@ -5,10 +5,21 @@ import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 import Table from './table'
 import theme from '../../theme'
+import { fetchRequest } from '../../utils/request'
 
 const PackageDescription = (props: any) => {
   const { classes, pack, user} = props
+  const createPaytm =  async () => {
+    const result = await fetchRequest('create_paytm_txn.php', {
+      method: 'GET'
+    }, true)
+    if (!result.error) {
+      window.location.replace(`http://zefiri.com/travel-api/paytmPayment.php?orderid=${result.data.id}&customerid=${user.user.id}&txnamount=${pack.price}`)
 
+    } else {
+      console.log(result);
+    }
+  }
   return (
     <Box>
       <meta property="og:title"              content={pack.name} />
@@ -27,6 +38,8 @@ const PackageDescription = (props: any) => {
                 // @ts-ignore: Object is possibly 'null'.
                 document.getElementById('signInClick').click()
               }
+          } else{
+            createPaytm()
           }
         }}>
           <Typography className={classes.bookNowText}>{user && user.user ? 'Book Now' : 'Sign In to Book' }</Typography>
