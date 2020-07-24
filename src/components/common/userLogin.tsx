@@ -3,7 +3,16 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import SignInPopper from './signInPopper'
 
-const UserLogin = (props: any) => {
+
+interface Props {
+  user: any
+  logOutUser(): void
+  error: string | null
+  signInUser?(data:any): Promise<void>
+  registerUser?(data:any): Promise<void>
+}
+
+const UserLogin = (props: Props) => {
   const { user, logOutUser, error, signInUser, registerUser } = props
   console.log(user)
   return (

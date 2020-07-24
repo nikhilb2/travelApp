@@ -17,7 +17,16 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 */
-const SignInPop = (props: any) => {
+
+interface Props {
+  type?: string
+  text: string
+  register?(data:any):void
+  signin?(data:any):void
+  error: string | null
+}
+
+const SignInPop = (props: Props) => {
   //const classes = useStyles()
   const [anchorEl, setAnchorEl] = React.useState(null)
   function handleClick(event: any) {

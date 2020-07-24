@@ -35,7 +35,7 @@ type Props = {
 }
 type State = {
   newUser: any
-  error: string | null
+  error:  null | string
   checkOutWithoutUser: boolean
 }
 
@@ -108,8 +108,8 @@ class NavBarMen extends Component<Props, State> {
         >
           <Toolbar>
             <UserLogin
-              registerUser={(data: any) => this.registerUser(data)}
-              signInUser={(data: any) => this.signInUser(data)}
+              registerUser={(data: any): Promise<void> => this.registerUser(data)}
+              signInUser={(data: any):Promise<void> => this.signInUser(data)}
               error={error}
               logOutUser={() => this.logOutUser()}
               user={newUser ? newUser : user && user.user ? user.user : null}

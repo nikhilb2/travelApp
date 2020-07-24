@@ -13,7 +13,7 @@ type Props = {
   bgcolor?: string
   color?: string
   signin: any
-  error?: string
+  error: string | null
 }
 type State = {
   email?: any
