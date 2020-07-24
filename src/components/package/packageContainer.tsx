@@ -7,7 +7,7 @@ import PackageDescription from './packageDescription'
 import theme from '../../theme'
 import { capitalize } from '../../utility'
 const PackageContainer = (props: any) => {
-  const { classes, pack } = props
+  const { classes, pack, user } = props
   console.log(pack)
   let description = []
   if (pack) {
@@ -23,7 +23,7 @@ const PackageContainer = (props: any) => {
               <ImageViewer images={pack.images} />
             </Box>
             <Box className={classes.rightSide}>
-              <PackageDescription pack={pack} />
+              <PackageDescription pack={pack} user={user} />
             </Box>
           </Box>
         </section>

@@ -14,7 +14,6 @@ interface Props {
 
 const UserLogin = (props: Props) => {
   const { user, logOutUser, error, signInUser, registerUser } = props
-  console.log(user)
   return (
     <div>
       {user ? (

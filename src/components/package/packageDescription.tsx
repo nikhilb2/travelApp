@@ -7,7 +7,8 @@ import Table from './table'
 import theme from '../../theme'
 
 const PackageDescription = (props: any) => {
-  const { classes, pack } = props
+  const { classes, pack, user} = props
+
   return (
     <Box>
       <meta property="og:title"              content={pack.name} />
@@ -18,8 +19,17 @@ const PackageDescription = (props: any) => {
         <Box className={classes.priceTag}>
           <Typography className={classes.priceText}>₹{pack.price}</Typography>
         </Box>
-        <Button className={classes.bookNow}>
-          <Typography className={classes.bookNowText}>Book Now</Typography>
+        <Button className={classes.bookNow} onClick={() => {
+          console.log(user);
+
+          if (!user || !user.user) {
+              if (document.getElementById('signInClick')) {
+                // @ts-ignore: Object is possibly 'null'.
+                document.getElementById('signInClick').click()
+              }
+          }
+        }}>
+          <Typography className={classes.bookNowText}>{user && user.user ? 'Book Now' : 'Sign In to Book' }</Typography>
         </Button>
       </Box>
       <Table data={pack} />

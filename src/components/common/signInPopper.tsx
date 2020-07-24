@@ -50,6 +50,7 @@ const SignInPop = (props: Props) => {
           margin: 0,
         }}
         onClick={handleClick}
+        id='signInClick'
       >
         {text}
       </Button>

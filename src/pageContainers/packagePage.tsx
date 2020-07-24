@@ -15,7 +15,7 @@ const PackagePage = (props: any) => {
       <NavBar />
       <MiniNav />
       <div className={classes.packageContainer}>
-        <PackageContainer pack={pack} />
+        <PackageContainer pack={pack} user={user}/>
       </div>
       <Footer />
     </div>
