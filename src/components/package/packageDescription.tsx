@@ -42,7 +42,7 @@ const PackageDescription = (props: any) => {
             createPaytm()
           }
         }}>
-          <Typography className={classes.bookNowText}>{user && user.user ? 'Book Now' : 'Sign In to Book' }</Typography>
+          <Typography className={classes.bookNowText}>{user && user.user ? 'Pay now' : 'Sign nn to Book' }</Typography>
         </Button>
       </Box>
       <Table data={pack} />
