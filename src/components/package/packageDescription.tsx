@@ -14,7 +14,7 @@ const PackageDescription = (props: any) => {
       method: 'GET'
     }, true)
     if (!result.error) {
-      window.location.replace(`http://zefiri.com/travel-api/paytmPayment.php?orderid=${result.data.id}&customerid=${user.user.id}&txnamount=${pack.price}`)
+      window.location.replace(`http://images.myrespawn.com/travel-api/paytmPayment.php?orderid=${result.data.id}&customerid=${user.user.id}&txnamount=${pack.price}`)
 
     } else {
       console.log(result);

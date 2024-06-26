@@ -58,7 +58,7 @@ export default function MediaCard(props: any) {
               className={classes.media}
               image={
                 data.images[0]
-                  ? 'https://zefiri.com/travel-api/' + data.images[0].thumb
+                  ? 'https://images.myrespawn.com/travel-api/' + data.images[0].thumb
                   : '/static/phi.jpg'
               }
               title={data.name}

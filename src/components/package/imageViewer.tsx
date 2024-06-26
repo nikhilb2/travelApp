@@ -17,7 +17,7 @@ const ImageView = (props: any) => {
         <div className={classes.selectedImageHolder}>
           <figure>
             <img
-              src={'https://zefiri.com/travel-api/' + selectedImage}
+              src={'https://images.myrespawn.com/travel-api/' + selectedImage}
               alt="selectedImage"
               className={classes.selectedImage}
             />
@@ -39,7 +39,7 @@ const ImageView = (props: any) => {
                         ? classes.selectedImg
                         : classes.img
                     }
-                    src={'https://zefiri.com/travel-api/' + image.image}
+                    src={'https://images.myrespawn.com/travel-api/' + image.image}
                     alt={'img' + i}
                   />
                 </div>

@@ -32,7 +32,7 @@ export default function MediaCard(props: any) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={`https://zefiri.com/travel-api/${data.image}`}
+          image={`https://images.myrespawn.com/travel-api/${data.image}`}
           title={`${data.place}, ${data.country}`}
           children={
             <Typography className={classes.label}>{data.place}</Typography>

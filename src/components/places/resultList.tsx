@@ -36,7 +36,7 @@ export default function AlignItemsList(props: any) {
                 <ListItemAvatar>
                   <Avatar
                     alt="Remy Sharp"
-                    src={'https://zefiri.com/travel-api/' + item.image}
+                    src={'https://images.myrespawn.com/travel-api/' + item.image}
                   />
                 </ListItemAvatar>
               )}

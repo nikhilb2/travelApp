@@ -1,6 +1,6 @@
 import { getAccessToken } from './auth'
-const url = 'https://zefiri.com/travel-api/'
-const imageUrl = 'https://zefiri.com/travel-api/uploads/'
+const url = 'https://images.myrespawn.com/travel-api/'
+const imageUrl = 'https://images.myrespawn.com/travel-api/uploads/'
 export let parseJSONResponse = null
 
 // concat url with param
@@ -93,7 +93,7 @@ export function requestUploadImage(photos) {
       'Content-Type': 'multipart/form-data',
     },
   }
-  return fetch('https://zefiri.com/travel-api/upload.php', options) // eslint-disable-line
+  return fetch('https://images.myrespawn.com/travel-api/upload.php', options) // eslint-disable-line
     .then(checkStatus)
     .then(parseJSON)
     .then((data) => ({ data }))
