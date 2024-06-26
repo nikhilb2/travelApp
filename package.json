@@ -21,11 +21,11 @@
     "format": "prettier --single-quote --no-semi --write \"{src/**/*.tsx,pages/**/*.tsx,hocs/**/*.tsx}\""
   },
   "devDependencies": {
-    "@types/next": "latest",
+   "@types/next": "^9.0.0",
     "@types/node": "^13.1.5",
     "@types/react": "16.9.0",
     "@types/react-dom": "16.9.0",
     "prettier": "2.0.5",
-    "typescript": "latest"
+    "typescript": "3.7.2"
   }
 }
